@@ -8,6 +8,6 @@ COPY docker-entrypoint.sh docker-entrypoint.sh
 RUN chmod +x docker-entrypoint.sh
 RUN apt-get install libfontconfig
 
-EXPOSE 8000
+EXPOSE 8080
 
 CMD /code/docker-entrypoint.sh
