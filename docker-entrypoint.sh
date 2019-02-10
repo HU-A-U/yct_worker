@@ -1,1 +1,1 @@
-/usr/local/bin/mitmdump -s /code/test.py
+/usr/local/bin/mitmdump -s /code/proxy_yct/test.py
