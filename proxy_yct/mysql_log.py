@@ -1,17 +1,18 @@
-'''直接使用mysql存储数据'''
+﻿'''直接使用mysql存储数据'''
 # -*- coding:utf-8 -*-
 import pymysql
 import re
 import traceback
 import os
-from data_config import Config
-yct_task=Config().YCT_TASK
+
 from logger_logging import get_log
 logger = get_log().config_log()
 DATABASE_RE = re.compile("'(.*?)'", re.DOTALL)
 class Mysql_log():
     def __init__(self,database,datatable):
         '''自定义数据库,自定义数据表'''
+        from data_config import Config
+        self.yct_task = Config().YCT_TASK
         self.datatable = datatable
         self.database = database
         # self.info=info
@@ -19,8 +20,15 @@ class Mysql_log():
     def login_sqlsever(self):
         '''登录sqlsever'''
         try:
-            self.connection = pymysql.connect(host="localhost", user="root", password="root", charset="utf8",use_unicode=True,
-                        )
+            if self.yct_task:
+                self.pymysqlinfo = eval(os.environ['YCT_TASK'])
+                self.connection = pymysql.connect(host=self.pymysqlinfo['host'], user=self.pymysqlinfo['root'],
+                                                  password=self.pymysqlinfo['root'], port=self.pymysqlinfo['port'],
+                                                  charset='utf-8', use_unicode=True)
+            else:
+                self.connection = pymysql.connect(host="localhost", user="root", password="root", charset="utf8",
+                                                  use_unicode=True,
+                                                  )
             self.inquire = self.connection.cursor()  # 新建查询
             self.inquire.execute('show databases;')  # 查询语句,获得所有数据库
             databases = str(self.inquire.fetchall())  # 执行查询
@@ -28,8 +36,12 @@ class Mysql_log():
                 self.connection.autocommit(True)  # 自动提交事务
                 self.inquire.execute('create DATABASE %s' % (self.database))
             self.operator()
-            self.connection = pymysql.connect(host="localhost", user="root", password='root', charset="utf8",use_unicode=True,
-                                              database=self.database)
+            if self.pymysqlinfo:
+                self.connection = pymysql.connect(host=self.pymysqlinfo['host'], user=self.pymysqlinfo['root'],
+                                                  password=self.pymysqlinfo['root'], charset='utf-8', use_unicode=True,database=self.database,port=self.pymysqlinfo['port'])
+            else:
+                self.connection = pymysql.connect(host="localhost", user="root", password='root', charset="utf8",use_unicode=True,
+                                                  database=self.database)
             self.inquire = self.connection.cursor()
         except pymysql.OperationalError as e:
             logger.error('[SQLSEVER OPERATIONAL ERROR]:%s', traceback.print_exc())

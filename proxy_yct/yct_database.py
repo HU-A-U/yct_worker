@@ -1,9 +1,9 @@
-# -*- coding:utf-8 -*-
+﻿# -*- coding:utf-8 -*-
 import pymysql
 import re
 import traceback
 import os
-import gc
+# import gc
 class Mysql():
     def __init__(self,database,datatable):
         '''自定义数据库,自定义数据表'''
@@ -17,7 +17,11 @@ class Mysql():
     def login_sqlsever(self):
         '''登录sqlsever'''
         try:
-            self.connection = pymysql.connect(host="localhost", user="root", password="root", charset="utf8",use_unicode=True,
+            if self.yct_task:
+                self.pymysqlinfo=eval(os.environ['YCT_TASK'])
+                self.connection=pymysql.connect(host=self.pymysqlinfo['host'],user=self.pymysqlinfo['root'],password=self.pymysqlinfo['root'],port=self.pymysqlinfo['port'],charset='utf-8',use_unicode=True)
+            else:
+                self.connection = pymysql.connect(host="localhost", user="root", password="root", charset="utf8",use_unicode=True,
                         )
             self.inquire = self.connection.cursor()  # 新建查询
             self.inquire.execute('show databases;')  # 查询语句,获得所有数据库
@@ -27,8 +31,12 @@ class Mysql():
                 self.connection.autocommit(True)  # 自动提交事务
                 self.inquire.execute('create DATABASE %s' % (self.database))
             self.operator()
-            self.connection = pymysql.connect(host="localhost", user="root", password='root', charset="utf8",use_unicode=True,
-                                              database=self.database)
+            if self.pymysqlinfo:
+                self.connection = pymysql.connect(host=self.pymysqlinfo['host'], user=self.pymysqlinfo['root'],
+                                                  password=self.pymysqlinfo['root'], charset='utf-8', use_unicode=True,database=self.database,port=self.pymysqlinfo['port'])
+            else:
+                self.connection = pymysql.connect(host="localhost", user="root", password='root', charset="utf8",use_unicode=True,
+                                                  database=self.database)
             self.inquire = self.connection.cursor()
         except pymysql.OperationalError as e:
             self.logger.error('[SQLSEVER OPERATIONAL ERROR]:%s', traceback.print_exc())
@@ -62,7 +70,7 @@ class Mysql():
         self.inquire.execute('select parameter from %s where customer_id ="%s" AND to_server="%s";'%(self.datatable[0],info['customer_id'],info['to_server']))
         parameter=self.inquire.fetchone()
         if not parameter:
-            gc.collect()
+            # gc.collect()
             return self.insert_data(info)
         if parameter[0] in info['parameter']:
             return 'success'
@@ -71,7 +79,7 @@ class Mysql():
                 not_over=self.yct_task['not_over']
                 if info['to_server'] in not_over:
                     return self.insert_data(info)
-            gc.collect()
+            # gc.collect()
             return self.over_data(info)
     def over_data(self,info):
         '''覆盖记录'''
