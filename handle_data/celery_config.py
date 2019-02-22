@@ -57,11 +57,6 @@ CELERY_QUEUES = {
         "exchange_type": "direct",
     },
 }
-# CELERY_QUEUE = (  # 定义任务队列.
-#         Queue('to_product', Exchange('product'),routing_key="product"),  # 路由键 以 "export_out_" 开头的消息都进入 export_out 队列.
-#         Queue('to_consume', Exchange('consume'),routing_key="consume"),  # 路由键 以 "export_in_" 开头的消息都进入 export_in 队列.
-#         Queue('to_analysis', Exchange('analysis'),routing_key="analysis"),  # 路由键 以 "export_dcg_" 开头的消息都进入 export_dcg 队列.
-#     )
 
 # 给不同的任务设置不同的routers，将任务消息存放到对应的queue
 CELERY_ROUTES = {
