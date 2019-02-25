@@ -29,6 +29,7 @@ class Extract():
         if web_name=='yct':
             catch_url=self.YCT_TASK['catch_url']
             catch_pic=self.YCT_TASK['catch_pic']
+            print('我是to_server',res['to_server'],'\n\n')
             if catch_pic in res['to_server']:
                 customer_id_jpg = 'yzm_yct'
                 pic_path = r'D:\data_pic\{}.png'.format(customer_id_jpg)
