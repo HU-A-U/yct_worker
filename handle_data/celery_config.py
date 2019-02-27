@@ -68,9 +68,10 @@ CELERY_ROUTES = {
 
 
 
-''''# 指定任务序列化方式
+''''
+# 指定任务序列化方式
 CELERY_TASK_SERIALIZER = 'msgpack'
-# # 指定结果序列化方式
+# 指定结果序列化方式
 CELERY_RESULT_SERIALIZER = 'msgpack'
 # 任务过期时间,celery任务执行结果的超时时间
 CELERY_TASK_RESULT_EXPIRES = 60 * 20
@@ -80,9 +81,10 @@ CELERY_ACCEPT_CONTENT = ["msgpack"]
 CELERY_ACKS_LATE = True
 # 压缩方案选择，可以是zlib, bzip2，默认是发送没有压缩的数据
 CELERY_MESSAGE_COMPRESSION = 'zlib'
-# 规定完成任务的时间
-CELERYD_TASK_TIME_LIMIT = 5  # 在5s内完成任务，否则执行该任务的worker将被杀死，任务移交给父进程
+# 规定完成任务的时间,在5s内完成任务，否则执行该任务的worker将被杀死，任务移交给父进程
+CELERYD_TASK_TIME_LIMIT = 5  
 # celery worker 每次去rabbitmq预取任务的数量
 CELERYD_PREFETCH_MULTIPLIER = 4
 # 每个worker执行了多少任务就会死掉，默认是无限的
-CELERYD_MAX_TASKS_PER_CHILD = 40'''
+CELERYD_MAX_TASKS_PER_CHILD = 40
+'''

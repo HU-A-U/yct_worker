@@ -12,6 +12,7 @@ from __future__ import absolute_import
 
 # celery -A handle_data worker -l info -Q to_consume -P eventlet  消费数据
 
+# celery.exe flower --broker=amqp://guest:guest@localhost:5672/test
 
 from celery import Celery
 

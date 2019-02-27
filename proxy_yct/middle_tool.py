@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+import json
 import typing
 # from yct_task import my_customer,my_product
 # from yct_task_two import my_product
@@ -13,6 +14,9 @@ import mitmproxy.proxy.protocol
 
 import pickle
 import time
+
+from handle_data.main import handle_data
+
 filter_info={'http_connect':['sh.gov.cn']}
 class classification_deal:
     '''定义一个基类通过配置处理消息'''
@@ -24,7 +28,6 @@ class classification_deal:
         pass
     def run_celery(self,data):
         pass
-
 
 
 class Proxy(classification_deal):
@@ -59,8 +62,6 @@ class Proxy(classification_deal):
         """
         # '''读取响应头内容'''
 
-
-
     def response(self, flow: mitmproxy.http.HTTPFlow):
         """
             The full HTTP response has been read.
@@ -71,17 +72,19 @@ class Proxy(classification_deal):
         # #     with open(r'C:\Users\xh\proxy_yct\csdn-kf.png', 'wb') as f:
         # #         f.write(flow.response.content)
         connect = filter_info['http_connect']
+        data_dict = {}
         for i in connect:
             if i in flow.request.host:
-                if 'yct' in i:
-                    data_bag = self.yct_dealdatabag(flow)
-                    break
-            else:
-                data_bag = self.other_dealdatabag(flow)
+                data_dict = self.yct_dealdatabag(flow)
                 break
-        res = pickle.dumps(data_bag)
-        print(res)
-        self.run_celery(res)
+            else:
+                data_dict = self.other_dealdatabag(flow)
+                break
+        print('cccccccccccccccccccccccccc')
+        print(data_dict)
+        data_str = str(pickle.dumps(data_dict))
+        self.run_celery(data_str)
+        # self.run_celery(data_dict)
 
     def other_dealdatabag(self,flow):
         data_bag = {}
@@ -104,11 +107,10 @@ class Proxy(classification_deal):
         data_bag['customer_id'] = ''
         return data_bag
 
-    def run_celery(self,data):
+    def run_celery(self,data_str):
         #这个地方调用任务to_product
-        # print(data)
-        tasks.to_product(data)
-        # my_product(res)
+        print('111111111111111111111111')
+        handle_data(data_str)
         # folder=open(r'D:\data_bag_pickle\{}.pkl'.format(time.time()),mode='wb')
         # pickle.dump(data_bag,folder)
         # folder.close()
