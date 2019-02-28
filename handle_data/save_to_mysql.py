@@ -25,7 +25,7 @@ class Save_to_sql():
 
     #插入一条新的记录
     def insert_new(self,infodata):
-        create_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        # create_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
         #根据表名，拼接参数进行存库
         new_set = {}
@@ -35,11 +35,11 @@ class Save_to_sql():
 
             new_set = {
                 'pickled_data': infodata,
-                'create_time': create_time,
+                # 'create_time': create_time,
             }
         elif self.db_name == 'analysis':
             new_set.update(infodata)
-            new_set['create_time'] = create_time
+            # new_set['create_time'] = create_time
         try:
             the_set = self.table.insert(**new_set)
             db.commit()

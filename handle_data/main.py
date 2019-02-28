@@ -9,11 +9,11 @@ def handle_data(data_str):
     res1 = to_product.apply_async(args=[data_str],retry=True,queue='to_product')
     print(res1.get())
     #根据返回的id res1，对数据进行解析，返回解析后的数据res2
-    # res2 = to_analysis.apply_async(args=[res1.get()],retry=True,queue='to_analysis')
-    # print(res2.get())
+    res2 = to_analysis.apply_async(args=[res1.get()],retry=True,queue='to_analysis')
+    print(res2.get())
     #将解析后的数据res2，插入数据库
-    # res3 = to_consume.apply_async(args=[res2.get()],retry=True,queue='to_consume')
-    # print(res3.get())
+    res3 = to_consume.apply_async(args=[res2.get()],retry=True,queue='to_consume')
+    print(res3.get())
 
 
 

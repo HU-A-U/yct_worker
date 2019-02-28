@@ -60,7 +60,7 @@ class Proxy(classification_deal):
             HTTP response headers were successfully read. At this point, the body
             is empty.
         """
-        # '''读取响应头内容'''
+        '''读取响应头内容'''
 
     def response(self, flow: mitmproxy.http.HTTPFlow):
         """
@@ -96,6 +96,7 @@ class Proxy(classification_deal):
         data_bag['response'] = flow.response
         data_bag['customer_id'] = ''
         return data_bag
+
     def yct_dealdatabag(self,flow):
         data_bag = {}
         data_bag['request'] = flow.request
@@ -118,13 +119,6 @@ class Proxy(classification_deal):
         # print(res)
 
 
-
-
-
-
-
-
-        
 
 
     def error(self, flow: mitmproxy.http.HTTPFlow):

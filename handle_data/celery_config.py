@@ -20,7 +20,6 @@ CELERY_IMPORTS = (
     'handle_data.tasks'
 )
 
-
 # 设置默认的队列名称，如果一个消息不符合其他的队列就会放在默认队列里面，如果什么都不设置的话，数据都会发送到默认的队列中
 CELERY_DEFAULT_QUEUE = "default"
 # 设置详细的队列 exchange_type有三种类型，分别是 direct topic fanout 参考https://blog.51cto.com/linuxnewstar/1884437
