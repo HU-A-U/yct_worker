@@ -80,8 +80,6 @@ class Proxy(classification_deal):
             else:
                 data_dict = self.other_dealdatabag(flow)
                 break
-        print('cccccccccccccccccccccccccc')
-        print(data_dict)
         data_str = str(pickle.dumps(data_dict))
         self.run_celery(data_str)
         # self.run_celery(data_dict)
@@ -110,7 +108,6 @@ class Proxy(classification_deal):
 
     def run_celery(self,data_str):
         #这个地方调用任务to_product
-        print('111111111111111111111111')
         handle_data(data_str)
         # folder=open(r'D:\data_bag_pickle\{}.pkl'.format(time.time()),mode='wb')
         # pickle.dump(data_bag,folder)

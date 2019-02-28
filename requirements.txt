@@ -53,7 +53,7 @@ pyparsing==2.2.2
 pyperclip==1.6.5
 python-dateutil==2.7.5
 pytz==2018.9
-pywin32==224
+
 redis==3.1.0
 regex==2018.11.22
 requests==2.21.0
