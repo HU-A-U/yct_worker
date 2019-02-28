@@ -10,9 +10,11 @@
 # 注意，celery4版本后，CELERY_BROKER_URL改为BROKER_URL
 from kombu import Queue, Exchange
 
-BROKER_URL = 'amqp://test:test@127.0.0.1:5672/test'
+BROKER_URL = 'amqp://cic_admin:JYcxys@3030@192.168.1.152:5672/yct'
+# BROKER_URL = 'amqp://test:test@127.0.0.1:5672/test'
 # 指定结果的接受地址
-CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/15'
+CELERY_RESULT_BACKEND = 'redis://192.168.1.152:16379/15'
+# CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/15'
 # celery worker的并发数，默认是服务器的内核数目,也是命令行-c参数指定的数目
 CELERYD_CONCURRENCY = 4
 #指定导入的任务模块
