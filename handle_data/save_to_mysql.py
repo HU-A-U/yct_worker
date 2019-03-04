@@ -3,7 +3,6 @@ import datetime
 import sqlsoup
 from handle_data.celery_config import MYSQL_HOST, MYSQL_PORT
 
-
 # SURL = "mysql+pymysql://cic_admin:TaBoq,,1234@192.168.1.170:3306/cicjust_splinter?charset=utf8&autocommit=true"
 # SURL = "mysql+pymysql://root:mysql@{}:{}/proxy?charset=utf8&autocommit=true".format(MYSQL_HOST, MYSQL_PORT)
 

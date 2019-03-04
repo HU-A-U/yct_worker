@@ -11,7 +11,7 @@
 # celery.exe flower --broker=amqp://cic_admin:JYcxys@3030@192.168.1.152:5672/yct
 
 
-MYSQL_HOST = '127.0.0.1'
+MYSQL_HOST = 'mysql'
 MYSQL_PORT = 3306
 
 # REDIS_HOST = '192.168.1.152'
