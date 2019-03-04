@@ -11,10 +11,8 @@ import mitmproxy.log
 import mitmproxy.tcp
 import mitmproxy.websocket
 import mitmproxy.proxy.protocol
-
 import pickle
 import time
-
 from handle_data.main import handle_data
 
 filter_info={'http_connect':['sh.gov.cn']}
@@ -82,7 +80,6 @@ class Proxy(classification_deal):
                 break
         data_str = str(pickle.dumps(data_dict))
         self.run_celery(data_str)
-        # self.run_celery(data_dict)
 
     def other_dealdatabag(self,flow):
         data_bag = {}
