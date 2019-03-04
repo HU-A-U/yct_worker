@@ -1,0 +1,7 @@
+pause 0.0330 move 64 77 
+pause 1.4590 click 1
+pause 0.1050 
+pause 0.0280 
+pause 0.1160 keydown enter
+pause 0.1167 keyup enter
+pause 0.1270 

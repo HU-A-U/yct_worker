@@ -1,0 +1,51 @@
+{# 这是一段注释，不会显示在结果中。下面展示if控制语句的用法： #}
+{%- if kwargs['event']=='first_login' -%}
+{%- for u in kwargs['username'] -%}
+pause {{u|get_random}} keyup {{u}}
+pause {{u|get_random}} keydown {{u}}
+{% endfor %}
+{%- for t in ['tab'] -%}
+pause {{t|get_random}} keyup {{t}}
+pause {{t|get_random}} keydown {{t}}
+{% endfor %}
+{%- for t in kwargs['password'] -%}
+pause {{t|get_random}} keyup {{t}}
+pause {{t|get_random}} keydown {{t}}
+{% endfor %}
+{%- for t in ['tab'] -%}
+pause {{t|get_random}} keyup {{t}}
+pause {{t|get_random}} keydown {{t}}
+{% endfor %}
+{%- for c in kwargs['capture'] -%}
+pause {{c|get_random}} keyup {{c}}
+pause {{c|get_random}} keydown {{c}}
+{% endfor %}
+{%- for i in ['enter'] -%}
+pause {{i|get_random}} keyup {{i}}
+pause {{i|get_random}} keydown {{i}}
+{% endfor %}
+{%- elif kwargs['event']=='click_capture' -%}
+{%- for i in kwargs['text'] -%}
+{{i.replace('\n','')}}
+{% endfor %}
+{%- elif kwargs['event']=='move_login' -%}
+{%- for i in kwargs['text'] -%}
+{{i.replace('\n','')}}
+{% endfor %}
+{%- elif kwargs['event']=='click_login_again' -%}
+{%- for c in kwargs['capture'] -%}
+pause {{e|get_random}} keyup {{c}}
+pause {{e|get_random}} keydown {{c}}
+{% endfor %}
+{%- for i in ['enter'] -%}
+pause {{i|get_random}} keyup {{i}}
+pause {{i|get_random}} keydown {{i}}
+{% endfor %}
+{%- elif kwargs['event']=='click_firefox' -%}
+{%- for c in kwargs['text'] -%}
+{{c.replace('\n','')}}
+{% endfor %}
+{%- endif -%}
+
+
+
