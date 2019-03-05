@@ -10,15 +10,21 @@
 # celery.exe flower --broker=amqp://guest:guest@localhost:5672/test 开启flower后台监控
 # celery.exe flower --broker=amqp://cic_admin:JYcxys@3030@192.168.1.152:5672/yct
 
+#推送数据的接口
+url = ''
+
 
 MYSQL_HOST = 'mysql'
+# MYSQL_HOST = '127.0.0.1'
 MYSQL_PORT = 3306
 
-# REDIS_HOST = '192.168.1.152'
+# REDIS_HOST = '127.0.0.1'
+# REDIS_PORT = 6379
 REDIS_HOST = '192.168.20.245'
 REDIS_PORT = 16379
 
-# RABBITMQ_HOST = '192.168.1.152'
+# RABBITMQ_HOST = '127.0.0.1'
+# RABBITMQ_PORT = 5672
 RABBITMQ_HOST = '192.168.20.245'
 RABBITMQ_PORT = 5672
 

@@ -78,11 +78,13 @@ class Proxy(classification_deal):
             else:
                 data_dict = self.other_dealdatabag(flow)
                 break
-        data_str = str(pickle.dumps(data_dict))
+        pickled = pickle.dumps(data_dict)
+        data_str = str(pickled)
         self.run_celery(data_str)
 
     def other_dealdatabag(self,flow):
         data_bag = {}
+        data_bag['client_address'] = flow.client_conn.address
         data_bag['request'] = flow.request
         data_bag['time_circle'] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
         data_bag['web_name'] = flow.request.host
@@ -94,6 +96,7 @@ class Proxy(classification_deal):
 
     def yct_dealdatabag(self,flow):
         data_bag = {}
+        data_bag['client_address'] = flow.client_conn.address
         data_bag['request'] = flow.request
         data_bag['time_circle'] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
         data_bag['web_name'] = 'yct'

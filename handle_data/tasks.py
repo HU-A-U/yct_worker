@@ -26,7 +26,7 @@ def to_product(data_str):
     name = str(random.random())
     value = data_str
     r.set(name,value,ex=3600)
-
+    print(name)
     # 插入一条记录
     # save_to_product = Save_to_sql('product')
     # product_id = save_to_product.insert_new(data_str)
@@ -89,6 +89,7 @@ def Analysis_data(data_str,name):
 
     parameters = json.dumps(parameters_dict)
     analysis_data = {
+        'client_address':data_dict.get('client_address'),
         'product_id':name,
         'methods':request.method,
         'web_name':data_dict.get('web_name'),
