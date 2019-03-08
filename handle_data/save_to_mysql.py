@@ -1,12 +1,8 @@
 # -*- coding:utf-8 -*-
 import datetime
 import sqlsoup
-from handle_data.celery_config import MYSQL_HOST, MYSQL_PORT
+from handle_data.celery_config import SURL
 
-# SURL = "mysql+pymysql://cic_admin:TaBoq,,1234@192.168.1.170:3306/cicjust_splinter?charset=utf8&autocommit=true"
-# SURL = "mysql+pymysql://root:mysql@{}:{}/proxy?charset=utf8&autocommit=true".format(MYSQL_HOST, MYSQL_PORT)
-
-SURL = "mysql+pymysql://root:cicjust_proxy@{}:{}/proxy?charset=utf8&autocommit=true".format(MYSQL_HOST, MYSQL_PORT)
 db = sqlsoup.SQLSoup(SURL)
 
 class Save_to_sql():
@@ -35,20 +31,24 @@ class Save_to_sql():
             new_set = {
                 'pickled_data': infodata,
             }
-            the_set = self.table.insert(**new_set)
-        elif self.table_name == 'analysis':
+            # the_set = self.table.insert(**new_set)
+        elif self.table_name == 'yctformdata':
             to_server = infodata.get('to_server')
             web_name = infodata.get('web_name')
             methods = infodata.get('methods')
-            if self.table.filter_by(to_server=to_server, web_name=web_name, methods=methods).count():
-                the_set = self.table.filter_by(to_server=to_server, web_name=web_name, methods=methods).one()
-                the_set.parameters = infodata.get('parameters')
-                the_set.product_id = infodata.get('product_id')
-                the_set.time_circle = infodata.get('time_circle')
-            else:
-                new_dict.update(infodata)
-                the_set = self.table.insert(**new_dict)
+            registerAppNo = infodata.get('registerAppNo')
+            if self.table.filter_by(to_server=to_server, web_name=web_name, methods=methods, registerAppNo=registerAppNo).count():
+                the_set = self.table.filter_by(to_server=to_server, web_name=web_name, methods=methods,registerAppNo=registerAppNo).one()
+                #删除原有的记录，插入一条新的记录
+                db.delete(the_set)
+
+                # the_set.parameters = infodata.get('parameters')
+                # the_set.product_id = infodata.get('product_id')
+                # the_set.time_circle = infodata.get('time_circle')
+            # else:
+            new_dict.update(infodata)
         try:
+            the_set = self.table.insert(**new_dict)
             db.commit()
         except Exception as e:
             if self._sentry:

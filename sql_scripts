@@ -1,0 +1,21 @@
+create database yct_proxy charset utf8;
+use yct_proxy;
+CREATE TABLE yctformdata
+(
+    id bigint(20) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    web_name varchar(255),
+    to_server varchar(255),
+    anync varchar(255),
+    type varchar(255),
+    methods varchar(255),
+    parameters longtext,
+    yctAppNo varchar(255),
+    registerAppNo varchar(255),
+    etpsName varchar(255),
+    pageName varchar(255),
+    customer_id varchar(255),
+    product_id varchar(255),
+    time_circle varchar(255),
+    create_time timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+CREATE UNIQUE INDEX analysis_id_uindex ON yctformdata (id);
