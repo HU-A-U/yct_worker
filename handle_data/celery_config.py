@@ -17,9 +17,8 @@ url = ''
 YuanQuToken = 'yuanqu001'
 
 
-SURL = "mysql+pymysql://cic_admin:TaBoq,,1234@192.168.1.170:3306/yct_proxy?charset=utf8&autocommit=true"
-# SURL = "mysql+pymysql://root:mysql@{}:{}/proxy?charset=utf8&autocommit=true".format(MYSQL_HOST, MYSQL_PORT)
-# SURL = "mysql+pymysql://root:cicjust_proxy@{}:{}/proxy?charset=utf8&autocommit=true".format(MYSQL_HOST, MYSQL_PORT)
+# SURL = "mysql+pymysql://cic_admin:TaBoq,,1234@192.168.1.170:3306/yct_proxy?charset=utf8&autocommit=true"
+SURL = "mysql+pymysql://root:159357a@192.168.10.11:3306/yct_proxy?charset=utf8&autocommit=true"
 
 
 REDIS_HOST = '127.0.0.1'
