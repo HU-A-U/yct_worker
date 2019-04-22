@@ -21,24 +21,12 @@ url = ''
 YuanQuToken = 'yuanqu001'
 
 
-SURL = "mysql+pymysql://cic_admin:TaBoq,,1234@192.168.1.170:3306/yct_proxy?charset=utf8&autocommit=true"
-# SURL = "mysql+pymysql://root:159357a@192.168.10.11:3306/yct_proxy?charset=utf8&autocommit=true"
+# SURL = "mysql+pymysql://cic_admin:TaBoq,,1234@192.168.1.170:3306/yct_proxy?charset=utf8&autocommit=true"
+SURL = "mysql+pymysql://root:159357a@192.168.10.11:3306/yct_proxy?charset=utf8&autocommit=true"
 
-
-<<<<<<< HEAD
-# REDIS_HOST = '127.0.0.1'
-# REDIS_PORT = 6379
 REDIS_HOST = '192.168.1.152'
 REDIS_PORT = 16379
 
-# RABBITMQ_HOST = '127.0.0.1'
-# RABBITMQ_PORT = 5672
-=======
-REDIS_HOST = '192.168.1.152'
-REDIS_PORT = 16379
-
-
->>>>>>> e574e5307909d2aa1326e088d27672f509925ece
 RABBITMQ_HOST = '47.102.218.137'
 RABBITMQ_PORT = 5672
 
@@ -47,17 +35,10 @@ RABBITMQ_PORT = 5672
 from kombu import Queue, Exchange
 
 BROKER_URL = 'amqp://cic_admin:JYcxys@3030@{}:{}/yct'.format(RABBITMQ_HOST,RABBITMQ_PORT)
-<<<<<<< HEAD
-#BROKER_URL = 'redis://192.168.1.152:16379/1'
-# 指定结果的接受地址
-CELERY_RESULT_BACKEND = 'redis://{}:{}/15'.format(REDIS_HOST,REDIS_PORT)
-# CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/15'
-=======
 
 # 指定结果的接受地址
 CELERY_RESULT_BACKEND = 'redis://{}:{}/15'.format(REDIS_HOST,REDIS_PORT)
 
->>>>>>> e574e5307909d2aa1326e088d27672f509925ece
 # celery worker的并发数，默认是服务器的内核数目,也是命令行-c参数指定的数目
 CELERYD_CONCURRENCY = 4
 #指定导入的任务模块
