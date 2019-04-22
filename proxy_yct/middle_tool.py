@@ -69,15 +69,15 @@ class Proxy(classification_deal):
         # # if flow.response.headers['Content-Type'].startswith('image/'):
         # #     with open(r'C:\Users\xh\proxy_yct\csdn-kf.png', 'wb') as f:
         # #         f.write(flow.response.content)
-        connect = filter_info['http_connect']
-        data_dict = {}
-        for i in connect:
-            if i in flow.request.host:
-                data_dict = self.yct_dealdatabag(flow)
-                break
-            else:
-                data_dict = self.other_dealdatabag(flow)
-                break
+        # connect = filter_info['http_connect']
+        # data_dict = {}
+        # for i in connect:
+        #     if i in flow.request.host:
+        #         data_dict = self.yct_dealdatabag(flow)
+        #         break
+        #     else:
+        data_dict = self.other_dealdatabag(flow)
+                # break
         pickled = pickle.dumps(data_dict)
         data_str = str(pickled)
         self.run_celery(data_str)
