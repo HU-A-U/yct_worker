@@ -26,6 +26,8 @@ class Save_to_sql():
         new_dict = {}
         the_set = None
         to_server = infodata.get('to_server')
+        if 'yct' not in to_server: #一窗通之外的数据不存库
+            return
         if to_server not in ['http://yct.sh.gov.cn/bizhallnz_yctnew/apply/investor/ajax/save','http://yct.sh.gov.cn/bizhallnz_yctnew/apply/member/ajax_save_member']:
             web_name = infodata.get('web_name')
             methods = infodata.get('methods')
@@ -49,7 +51,7 @@ class Save_to_sql():
                 if self._sentry:
                     self._sentry.captureException()
                 db.rollback()
-            return the_set.id
+            return
 
 
     def find_data(self,product_id):
