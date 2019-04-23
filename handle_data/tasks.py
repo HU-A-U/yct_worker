@@ -59,7 +59,7 @@ def to_analysis(name):
 def to_consume(data):
     '''消费数据'''
     # 将解析完的数据进行存库
-    save_to_analysis = Save_to_sql('yctformdata')
+    save_to_analysis = Save_to_sql('yctform')
     if data:
         save_to_analysis.insert_new(data)
 
