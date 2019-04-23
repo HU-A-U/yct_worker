@@ -25,37 +25,31 @@ class Save_to_sql():
         #根据表名，拼接参数进行存库
         new_dict = {}
         the_set = None
-        if self.table_name == 'product':
-            if type(infodata) != str:
-                infodata = str(infodata)
-            new_set = {
-                'pickled_data': infodata,
-            }
-            # the_set = self.table.insert(**new_set)
-        elif self.table_name == 'yctformdata':
-            to_server = infodata.get('to_server')
+        to_server = infodata.get('to_server')
+        if to_server not in ['http://yct.sh.gov.cn/bizhallnz_yctnew/apply/investor/ajax/save','http://yct.sh.gov.cn/bizhallnz_yctnew/apply/member/ajax_save_member']:
             web_name = infodata.get('web_name')
             methods = infodata.get('methods')
             registerAppNo = infodata.get('registerAppNo')
             if self.table.filter_by(to_server=to_server, web_name=web_name, methods=methods, registerAppNo=registerAppNo).count():
-                the_set = self.table.filter_by(to_server=to_server, web_name=web_name, methods=methods,registerAppNo=registerAppNo).one()
-                #删除原有的记录，插入一条新的记录
-                db.delete(the_set)
-
-                # the_set.parameters = infodata.get('parameters')
-                # the_set.product_id = infodata.get('product_id')
-                # the_set.time_circle = infodata.get('time_circle')
-            # else:
+                # 已存在的记录直接更新
+                try:
+                    self.table.filter_by(to_server=to_server, web_name=web_name, methods=methods,registerAppNo=registerAppNo).update(infodata)
+                    db.commit()
+                except Exception as e:
+                    if self._sentry:
+                        self._sentry.captureException()
+                    db.rollback()
+                return 
+        else:
             new_dict.update(infodata)
-        try:
-            the_set = self.table.insert(**new_dict)
-            db.commit()
-        except Exception as e:
-            if self._sentry:
-                self._sentry.captureException()
-            db.rollback()
-
-        return the_set.id
+            try:
+                the_set = self.table.insert(**new_dict)
+                db.commit()
+            except Exception as e:
+                if self._sentry:
+                    self._sentry.captureException()
+                db.rollback()
+            return the_set.id
 
 
     def find_data(self,product_id):
