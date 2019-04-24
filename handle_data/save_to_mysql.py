@@ -6,7 +6,6 @@ from handle_data.celery_config import SURL
 db = sqlsoup.SQLSoup(SURL)
 
 from raven import Client
-
 cli = Client('https://6bc40853ade046ebb83077e956be04d2:d862bee828d848b6882ef875baedfe8c@sentry.cicjust.com//5')
 
 class Save_to_sql():
