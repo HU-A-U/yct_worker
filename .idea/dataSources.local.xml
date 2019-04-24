@@ -2,13 +2,13 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="@localhost" uuid="14c76651-f3e0-4e9e-82e8-484a7f443c82">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" family="MYSQL" exact-version="0.0" />
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0.0" />
     </data-source>
     <data-source name="1.170" uuid="509f87bd-b046-4aba-acff-8eb3ce9d6d50">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" family="MYSQL" exact-version="0.0" />
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0.0" />
     </data-source>
     <data-source name="1.170 [2]" uuid="eb35046f-04e4-46b4-b036-a754926ba8d8">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" family="MYSQL" exact-version="0.0" />
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0.0" />
     </data-source>
   </component>
 </project>

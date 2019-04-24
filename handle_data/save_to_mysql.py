@@ -5,9 +5,13 @@ from handle_data.celery_config import SURL
 
 db = sqlsoup.SQLSoup(SURL)
 
+from raven import Client
+
+cli = Client('https://6bc40853ade046ebb83077e956be04d2:d862bee828d848b6882ef875baedfe8c@sentry.cicjust.com//5')
+
 class Save_to_sql():
 
-    def __init__(self,table_name,sentry=None):
+    def __init__(self,table_name,sentry=cli):
         '''table_name(product 和 analysis)'''
 
         #表名称
@@ -45,7 +49,7 @@ class Save_to_sql():
         else:
             new_dict.update(infodata)
             try:
-                the_set = self.table.insert(**new_dict)
+                self.table.insert(**new_dict)
                 db.commit()
             except Exception as e:
                 if self._sentry:

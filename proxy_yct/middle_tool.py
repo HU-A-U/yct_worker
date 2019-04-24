@@ -72,21 +72,12 @@ class Proxy(classification_deal):
         # connect = filter_info['http_connect']
         # data_dict = {}
         # for i in connect:
-<<<<<<< HEAD
-        #     if i in flow.request.host:
-        #         data_dict = self.yct_dealdatabag(flow)
-        #         break
-        #     else:
-        data_dict = self.other_dealdatabag(flow)
-                # break
-=======
         #    if i in flow.request.host:
         #        data_dict = self.yct_dealdatabag(flow)
         #        break
         #    else:
         data_dict = self.other_dealdatabag(flow)
         #        break
->>>>>>> e574e5307909d2aa1326e088d27672f509925ece
         pickled = pickle.dumps(data_dict)
         data_str = str(pickled)
         self.run_celery(data_str)
