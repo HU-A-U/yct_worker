@@ -13,7 +13,5 @@ ENV A_QUEUE to_analysis
 ENV C_QUEUE to_consume
 ENV QUEUE to_product
 
-EXPOSE 8080
-
 CMD /code/docker-entrypoint.sh
 #ENTRYPOINT ["celery", "-A", "handle_data", "worker", "-l", "info", "-Q"]  
