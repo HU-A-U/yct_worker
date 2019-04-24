@@ -10,4 +10,5 @@ RUN apt-get install libfontconfig
 
 EXPOSE 8080
 
-CMD /code/docker-entrypoint.sh
+# CMD /code/docker-entrypoint.sh
+ENTRYPOINT ["celery", "-A", "handle_data", "-l", "info", "-Q"]  
