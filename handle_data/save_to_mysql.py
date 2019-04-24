@@ -45,17 +45,19 @@ class Save_to_sql():
                     if self._sentry:
                         self._sentry.captureException()
                     db.rollback()
-                return 
-        else:
-            new_dict.update(infodata)
-            try:
-                self.table.insert(**new_dict)
-                db.commit()
-            except Exception as e:
-                if self._sentry:
-                    self._sentry.captureException()
-                db.rollback()
-            return
+                    raise e
+                return
+
+        new_dict.update(infodata)
+        try:
+            self.table.insert(**new_dict)
+            db.commit()
+        except Exception as e:
+            if self._sentry:
+                self._sentry.captureException()
+            db.rollback()
+            raise e
+        return
 
 
     def find_data(self,product_id):
