@@ -60,8 +60,9 @@ class Save_to_sql():
             # 每次更新将apply_form记录的isSynchronous字段，置为0
             URL = 'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/save_info'
             try:
-                self.table.filter_by(to_server=URL, pageName='apply_form',registerAppNo=registerAppNo).update({'isSynchronous':'0'})
-                db.commit()
+                if self.table.filter_by(to_server=URL, pageName='apply_form',registerAppNo=registerAppNo).count():
+                    self.table.filter_by(to_server=URL, pageName='apply_form', registerAppNo=registerAppNo).update({'isSynchronous':'0'})
+                    db.commit()
             except Exception as e:
                 if self._sentry:
                     self._sentry.captureException()
