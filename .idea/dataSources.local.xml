@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="@localhost" uuid="14c76651-f3e0-4e9e-82e8-484a7f443c82">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0.0" />
-    </data-source>
-    <data-source name="1.170" uuid="509f87bd-b046-4aba-acff-8eb3ce9d6d50">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0.0" />
-    </data-source>
-    <data-source name="1.170 [2]" uuid="eb35046f-04e4-46b4-b036-a754926ba8d8">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0.0" />
+    <data-source name="测试库" uuid="ccf9df29-8e28-42de-a6f4-ef17bf1c54a1">
+      <database-info product="MySQL" version="5.7.10" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )" dbms="MYSQL" exact-version="5.7.10" exact-driver-version="5.1">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>cic_admin</user-name>
+      <introspection-schemas>*:@,yct_proxy</introspection-schemas>
     </data-source>
   </component>
 </project>

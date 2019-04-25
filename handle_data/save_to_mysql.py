@@ -27,14 +27,13 @@ class Save_to_sql():
 
         #根据表名，拼接参数进行存库
         new_dict = {}
-        the_set = None
         to_server = infodata.get('to_server')
+        web_name = infodata.get('web_name')
+        methods = infodata.get('methods')
+        registerAppNo = infodata.get('registerAppNo')
         if 'yct' not in to_server: #一窗通之外的数据不存库
             return
         if to_server not in ['http://yct.sh.gov.cn/bizhallnz_yctnew/apply/investor/ajax/save','http://yct.sh.gov.cn/bizhallnz_yctnew/apply/member/ajax_save_member']:
-            web_name = infodata.get('web_name')
-            methods = infodata.get('methods')
-            registerAppNo = infodata.get('registerAppNo')
             if self.table.filter_by(to_server=to_server, web_name=web_name, methods=methods, registerAppNo=registerAppNo).count():
                 # 已存在的记录直接更新
                 try:
@@ -56,6 +55,18 @@ class Save_to_sql():
                 self._sentry.captureException()
             db.rollback()
             raise e
+
+        if to_server != 'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/save_info':
+            # 每次更新将apply_form记录的isSynchronous字段，置为0
+            URL = 'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/save_info'
+            try:
+                self.table.filter_by(to_server=URL, pageName='apply_form',registerAppNo=registerAppNo).update({'isSynchronous':'0'})
+                db.commit()
+            except Exception as e:
+                if self._sentry:
+                    self._sentry.captureException()
+                db.rollback()
+                raise e
         return
 
 
