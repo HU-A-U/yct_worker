@@ -49,6 +49,7 @@ class Save_to_sql():
         new_dict.update(infodata)
         try:
             self.table.insert(**new_dict)
+            db.commit()
         except Exception as e:
             if self._sentry:
                 self._sentry.captureException()

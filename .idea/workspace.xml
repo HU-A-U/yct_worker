@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a6a13237-f0d0-47b4-84bd-c444d200b377" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handle_data/celery_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/handle_data/celery_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handle_data/data_mapping.py" beforeDir="false" afterPath="$PROJECT_DIR$/handle_data/data_mapping.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handle_data/save_to_mysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/handle_data/save_to_mysql.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handle_data/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/handle_data/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxy_yct/middle_tool.py" beforeDir="false" afterPath="$PROJECT_DIR$/proxy_yct/middle_tool.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -85,14 +80,14 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="240">
-                <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+                <caret line="12" column="48" lean-forward="true" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="das://ccf9df29-8e28-42de-a6f4-ef17bf1c54a1/schema/yct_proxy/table/yctformdata">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
@@ -101,11 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/handle_data/celery_config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="980">
+              <caret line="49" column="23" lean-forward="true" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -259,7 +254,7 @@
       <workItem from="1556154973023" duration="6669000" />
       <workItem from="1556238847265" duration="474000" />
       <workItem from="1557045114440" duration="6194000" />
-      <workItem from="1557113833226" duration="8792000" />
+      <workItem from="1557113833226" duration="9521000" />
     </task>
     <task id="LOCAL-00001" summary="配置sentry">
       <created>1556085308350</created>
@@ -331,11 +326,25 @@
       <option name="project" value="LOCAL" />
       <updated>1557045695527</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="调整股东，成员的部分">
+      <created>1557126911681</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1557126911681</updated>
+    </task>
+    <task id="LOCAL-00012" summary="修改redis地址为20段">
+      <created>1557127127233</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1557127127233</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30701000" />
+    <option name="totallyTimeSpent" value="31430000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -380,7 +389,9 @@
     <MESSAGE value="修改将isSynchronous字段置为0的判断条件" />
     <MESSAGE value="修改为正式库" />
     <MESSAGE value="开启flower后台监控的命令" />
-    <option name="LAST_COMMIT_MESSAGE" value="开启flower后台监控的命令" />
+    <MESSAGE value="调整股东，成员的部分" />
+    <MESSAGE value="修改redis地址为20段" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改redis地址为20段" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -412,16 +423,6 @@
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ccf9df29-8e28-42de-a6f4-ef17bf1c54a1/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="240">
-            <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docker-entrypoint.sh">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -439,13 +440,6 @@
           <folding>
             <element signature="e#23#34#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://ccf9df29-8e28-42de-a6f4-ef17bf1c54a1/schema/yct_proxy/table/yctformdata">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -482,8 +476,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/handle_data/celery_config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="980">
+          <caret line="49" column="23" lean-forward="true" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="240">
+            <caret line="12" column="48" lean-forward="true" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://ccf9df29-8e28-42de-a6f4-ef17bf1c54a1/schema/yct_proxy/table/yctformdata">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
