@@ -91,7 +91,6 @@ class Proxy(classification_deal):
         # data_bag['refer']=flow.request.headers.get('Referer','')
         data_bag['to_server'] = flow.request.url
         data_bag['response'] = flow.response
-        data_bag['customer_id'] = ''
         return data_bag
 
     def yct_dealdatabag(self,flow):
@@ -103,7 +102,6 @@ class Proxy(classification_deal):
         # data_bag['refer']=flow.request.headers.get('Referer','')
         data_bag['to_server'] = flow.request.url
         data_bag['response'] = flow.response
-        data_bag['customer_id'] = ''
         return data_bag
 
 

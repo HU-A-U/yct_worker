@@ -2,11 +2,13 @@
 big_dict = {
     'apply_form':{
         'etpsInfo.address':'sjjydz', #实际营业地址
+        'zcdz':'etpsInfo.address', #注册地址
         'etpsInfo.etpsTypeGb':'qylx', #企业类型
         'etpsAppagent.authorizeFromDate':'yyzzclrq', #营业执照成立日期
         'etpsAppagent.authorizeToDate':'yyzzdqrq', #营业执照到期日期
         'etpsCptl.cptlTotal':'zczbje', #注册资本金额
-        'businessScopeVos[0].businessScopeFormulation':'jyfw', #经营范围
+        # 'businessScopeVos[0].businessScopeFormulation':'jyfw', #经营范围
+        'etpsTrdInfo.trdScope':'jyfw', #经营范围
         'businessScopeVos[0].businessScopeName':'sshy', #所属行业
         'etpsOtherInfo.finanName':'cwryxm', #财务人员姓名
         'etpsOtherInfo.finanMobile':'cwrydh', #财务人员电话
