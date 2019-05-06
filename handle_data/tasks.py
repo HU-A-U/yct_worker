@@ -61,7 +61,8 @@ def to_consume(data):
     # 将解析完的数据进行存库
     save_to_analysis = Save_to_sql('yctformdata')
     if data:
-        if data.pop('delete_set'): #判断是否删除记录
+        is_del = data.pop('delete_set')
+        if is_del: #判断是否删除记录
             save_to_analysis.del_set(data)
         else:
             save_to_analysis.insert_new(data)
