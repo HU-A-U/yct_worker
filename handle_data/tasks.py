@@ -94,6 +94,8 @@ def Analysis_data(data_str,name):
         parameters_dict = {}
 
     parameters = handel_parameter(parameters_dict, data_dict.get('to_server'))
+    if not parameters:
+        return
 
     # 区分不同页面的form
     page_name = filter_step(data_dict.get('to_server'))
@@ -146,7 +148,7 @@ def Analysis_data(data_str,name):
     #针对其他的form的保存，前提是appNo对应apply_form已经存在库里
     else:
         yctAppNo = parameters_dict.get("yctAppNo",'') or parameters_dict.get("yctSocialUnit.yctAppNo",'')
-        registerAppNo = parameters_dict.get("registerAppNo",'')
+        registerAppNo = parameters_dict.get("registerAppNo",'') or parameters_dict.get('appNo') or parameters_dict.get('etpsMember.appNo')
         if yctAppNo or registerAppNo:
             if r.lindex(yctAppNo, 1):
                 analysis_data['registerAppNo'] = r.lindex(yctAppNo, 0).decode(encoding='utf-8')
@@ -213,8 +215,8 @@ def handel_parameter(parameter_dict,url):
                     parameters[k] = parameter_dict.get(v,'')
                 else:
                     parameters[v] = parameter_dict.get(k,'')
-        else:
-            return json.dumps(parameter_dict)
+        # else:
+        #     return json.dumps(parameter_dict)
 
     return json.dumps(parameters)
 
