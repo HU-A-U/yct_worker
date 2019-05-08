@@ -4,8 +4,8 @@ big_dict = {
         'etpsInfo.address':'sjjydz', #实际营业地址
         'zcdz':'etpsInfo.address', #注册地址
         'etpsInfo.etpsTypeGb':'qylx', #企业类型
-        'etpsAppagent.authorizeFromDate':'yyzzclrq', #营业执照成立日期
-        'etpsAppagent.authorizeToDate':'yyzzdqrq', #营业执照到期日期
+        # 'etpsAppagent.authorizeFromDate':'yyzzclrq', #营业执照成立日期
+        # 'etpsAppagent.authorizeToDate':'yyzzdqrq', #营业执照到期日期
         'etpsCptl.cptlTotal':'zczbje', #注册资本金额
         # 'businessScopeVos[0].businessScopeFormulation':'jyfw', #经营范围
         'etpsTrdInfo.trdScope':'jyfw', #经营范围
@@ -16,6 +16,13 @@ big_dict = {
         'chiefMember.mobile':'frsj', #法人手机
         'chiefMember.cetfId':'frsfz', #法人身份证
         'frdz':['chiefProvId','chiefCityId','chiefDistrictId'], #法人所在区
+
+        'fzr':'chiefMember.personName', #负责人姓名
+        'fzrdh':'chiefMember.mobile', #负责人手机号
+
+        'etpsContact.persnName':'llyxm', #XXX新增 联络员
+	    'etpsContact.mobile':'llysj', #XXX新增 联络员手机号
+        'etpsContact.certNo':'llysfz', #联络员身份证
     },
     'memberform':{
         'etpsMember.personName':'cyxm', #其他主要成员姓名
@@ -33,6 +40,7 @@ big_dict = {
         'wbjhYctFphdsqxxList[0].fpzlDm':'fplx', #发票类型
         'sjfwsdm':'skfws' #税控服务商
     },
+
 }
 
 '''税种类型'''

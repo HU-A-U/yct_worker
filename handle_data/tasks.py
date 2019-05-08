@@ -188,7 +188,7 @@ def handel_parameter(parameter_dict,url):
             gdxm=parameter_dict.get('personInvtSet',[{}])[0].get('personName',''), #姓名
             gdsfz=parameter_dict.get('personInvtSet',[{}])[0].get('cetfId',''), #身份证
             gddz=parameter_dict.get('address',''), #地址
-            gdsj=parameter_dict.get('cptl',''), #实缴金额
+            gdrj=parameter_dict.get('cptl',''), #认缴金额
             gdlx=gdlx.get(parameter_dict.get('entityTypeId',''),''), #股东类型
         )
     else:
