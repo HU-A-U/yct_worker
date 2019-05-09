@@ -73,14 +73,9 @@ CELERY_QUEUES = {
         "routing_key": "default",
         "exchange_type": "direct",
     },
-    "to_product": {  # 这是一个to_product队列 凡是to_product开头的routing key都会被放到这个队列
-        "routing_key": "product",
-        "exchange": "product",
-        "exchange_type": "direct",
-    },
-    "to_consume": {  # 设置扇形交换机
-        "routing_key": "consume",
-        "exchange": "consume",
+    "to_create": {  # 这是一个to_product队列 凡是to_product开头的routing key都会被放到这个队列
+        "routing_key": "create",
+        "exchange": "create",
         "exchange_type": "direct",
     },
     "to_analysis": {  # 设置扇形交换机
@@ -88,13 +83,18 @@ CELERY_QUEUES = {
         "exchange": "analysis",
         "exchange_type": "direct",
     },
+    "to_save": {  # 设置扇形交换机
+        "routing_key": "save",
+        "exchange": "save",
+        "exchange_type": "direct",
+    },
 }
 
 # 给不同的任务设置不同的routers，将任务消息存放到对应的queue
 CELERY_ROUTES = {
-    'handle_data.tasks.to_product': {'queue': 'to_product', 'routing_key': 'product'},
-    'handle_data.tasks.to_consume': {'queue': 'to_consume', 'routing_key': 'consume'},
+    'handle_data.tasks.to_create': {'queue': 'to_create', 'routing_key': 'create'},
     'handle_data.tasks.to_analysis': {'queue': 'to_analysis', 'routing_key': 'analysis'},
+    'handle_data.tasks.to_save': {'queue': 'to_save', 'routing_key': 'save'},
 }
 
 
