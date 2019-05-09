@@ -16,39 +16,54 @@ import redis
 redis_pool = redis.ConnectionPool(host=REDIS_HOST,port=REDIS_PORT)
 r = redis.Redis(connection_pool=redis_pool)
 
+# @celery_app.task(name='to_product')
+# def to_product(data_str):
+#     '''生产数据'''
+#     if not data_str:
+#         return
+#     # 将原始pickled的数据存入reids中
+#     # 随机生成一个数字，作为name
+#     name = str(random.random())
+#     value = data_str
+#     r.set(name,value,ex=3600)
+#     # 插入一条记录
+#     # save_to_product = Save_to_sql('product')
+#     # product_id = save_to_product.insert_new(data_str)
+#
+#     #根据返回的id res1，对数据进行解析，返回解析后的数据res2
+#     to_analysis.apply_async(args=[name], retry=True, queue='to_analysis',immutable=True)
+#
+#
+# @celery_app.task(name='to_analysis')
+# def to_analysis(data_str):
+#     '''解析数据'''
+#
+#     #从redis中获取值
+#     # data_bytes = r.get(name)
+#     # data_str = data_bytes.decode(encoding='utf-8')
+#     # 进行数据解析
+#     name = str(random.random())
+#     analysis_data = Analysis_data(data_str,name)
+#
+#     if not analysis_data:
+#         return
+#
+#     # #将解析后的数据res2，插入数据库
+#     to_consume.apply_async(args=[analysis_data], retry=True, queue='to_consume')
+
 @celery_app.task(name='to_product')
 def to_product(data_str):
     '''生产数据'''
     if not data_str:
         return
-    # 将原始pickled的数据存入reids中
-    # 随机生成一个数字，作为name
-    name = str(random.random())
-    value = data_str
-    r.set(name,value,ex=3600)
-    # 插入一条记录
-    # save_to_product = Save_to_sql('product')
-    # product_id = save_to_product.insert_new(data_str)
 
-    #根据返回的id res1，对数据进行解析，返回解析后的数据res2
-    to_analysis.apply_async(args=[name], retry=True, queue='to_analysis',immutable=True)
-
-
-@celery_app.task(name='to_analysis')
-def to_analysis(data_str):
-    '''解析数据'''
-
-    #从redis中获取值
-    # data_bytes = r.get(name)
-    # data_str = data_bytes.decode(encoding='utf-8')
-    # 进行数据解析
     name = str(random.random())
     analysis_data = Analysis_data(data_str,name)
 
     if not analysis_data:
         return
 
-    # #将解析后的数据res2，插入数据库
+    #根据返回的id res1，对数据进行解析，返回解析后的数据res2
     to_consume.apply_async(args=[analysis_data], retry=True, queue='to_consume')
 
 
