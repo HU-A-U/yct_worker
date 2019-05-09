@@ -38,10 +38,6 @@ def to_product(data_str):
 def to_analysis(data_str):
     '''解析数据'''
 
-    # 根据id获取数据进行解析
-    # find_product_data = Save_to_sql('product')
-    # product_data = find_product_data.find_data(name)
-
     #从redis中获取值
     # data_bytes = r.get(name)
     # data_str = data_bytes.decode(encoding='utf-8')
