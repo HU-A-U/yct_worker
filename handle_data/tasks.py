@@ -35,7 +35,7 @@ def to_product(data_str):
 
 
 @celery_app.task(name='to_analysis')
-def to_analysis(name):
+def to_analysis(data_str):
     '''解析数据'''
 
     # 根据id获取数据进行解析
@@ -43,9 +43,10 @@ def to_analysis(name):
     # product_data = find_product_data.find_data(name)
 
     #从redis中获取值
-    data_bytes = r.get(name)
-    data_str = data_bytes.decode(encoding='utf-8')
+    # data_bytes = r.get(name)
+    # data_str = data_bytes.decode(encoding='utf-8')
     # 进行数据解析
+    name = str(random.random())
     analysis_data = Analysis_data(data_str,name)
 
     if not analysis_data:
