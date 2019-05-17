@@ -7,10 +7,11 @@
 
 # celery -A handle_data worker -l info -Q to_consume -P eventlet  消费数据
 
-# mitmdump.exe -s start_script.py
+# mitmdump -s start_script.py
 
-# celery.exe flower --broker=amqp://guest:guest@localhost:5672/test 开启flower后台监控
-# celery.exe flower --broker=amqp://cic_admin:JYcxys@3030@192.168.1.152:5672/yct
+# celery flower --broker=amqp://guest:guest@localhost:5672/test 开启flower后台监控
+# celery flower --broker=amqp://cic_admin:JYcxys@3030@192.168.1.152:5672/yct
+# celery flower --broker=amqp://cic_admin:JYcxys@3030@47.102.218.137:5672/yct
 
 from raven import Client
 
