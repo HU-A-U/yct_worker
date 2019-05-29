@@ -5,7 +5,10 @@ from handle_data.celery_config import SURL
 from raven import Client
 cli = Client('https://6bc40853ade046ebb83077e956be04d2:d862bee828d848b6882ef875baedfe8c@sentry.cicjust.com//5')
 
-db = sqlsoup.SQLSoup(SURL)
+try:
+    db = sqlsoup.SQLSoup(SURL)
+except Exception as e:
+    cli.captureException()
 
 class Save_to_sql():
 

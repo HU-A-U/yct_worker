@@ -29,9 +29,9 @@ YuanQuToken = 'yuanqu001'
 SURL = "mysql+pymysql://cic_admin:159357a@192.168.10.11:3306/yct_proxy?charset=utf8&autocommit=true"
 # SURL = "mysql+pymysql://root:GHys1234&,><@!@192.168.10.246:3306/yct_proxy?charset=utf8&autocommit=true"
 
-REDIS_HOST = '192.168.20.245'
+REDIS_HOST = 'aliyun_redis'
 # REDIS_HOST = '192.168.1.152'
-REDIS_PORT = 16379
+REDIS_PORT = 6379
 
 
 # RABBITMQ_HOST = '192.168.1.152'
