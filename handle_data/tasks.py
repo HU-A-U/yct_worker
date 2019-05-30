@@ -13,7 +13,7 @@ from handle_data.save_to_mysql import Save_to_sql
 import redis
 
 #建立redis连接池
-redis_pool = redis.ConnectionPool(host=REDIS_HOST,port=REDIS_PORT)
+redis_pool = redis.ConnectionPool(host=REDIS_HOST,port=REDIS_PORT,decode_responses=True)
 r = redis.Redis(connection_pool=redis_pool)
 
 @celery_app.task(name='to_create')
@@ -39,8 +39,8 @@ def to_analysis(name):
     '''解析数据'''
 
     #从redis中获取值
-    data_bytes = r.get(name)
-    data_str = data_bytes.decode(encoding='utf-8')
+    data_str = r.get(name)
+    # data_str = data_bytes.decode(encoding='utf-8')
     # 进行数据解析
     analysis_data = Analysis_data(data_str,name)
 
