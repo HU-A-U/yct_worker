@@ -43,6 +43,7 @@ passlib==1.7.1
 Pillow==5.4.1
 pipreqs==0.4.9
 pluggy==0.8.1
+plumbum==1.6.7
 protobuf==3.6.1
 py==1.7.0
 pyasn1==0.4.5
@@ -60,6 +61,7 @@ raven==6.10.0
 redis==3.1.0
 regex==2018.11.22
 requests==2.21.0
+rpyc==4.1.0
 ruamel.yaml==0.15.86
 service-identity==18.1.0
 six==1.12.0
