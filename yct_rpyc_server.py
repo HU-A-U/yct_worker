@@ -25,6 +25,7 @@ class SaveService(Service):
                 return 'nodata'
         except Exception as e:
             cli.captureException()
+            return e
 
 s=ThreadedServer(service=SaveService,port=12233,auto_register=False)
 s.start()

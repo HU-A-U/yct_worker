@@ -83,12 +83,10 @@ def to_save(data):
     try:
         conn = rpyc.connect('116.228.76.162', 12233)
         result = conn.root.save_sql(data)
-        conn.close()
         return result
     except Exception as e:
         cli.captureException()
         return e
-
 
 def Analysis_data(data_str,name):
     # 数据解析
