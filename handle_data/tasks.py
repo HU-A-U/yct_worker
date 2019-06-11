@@ -1,19 +1,17 @@
 # -*- coding:utf-8 -*-
 '''创建任务'''
-import datetime
 import json
 import random
 import pickle
-import rpyc
-import time
 from handle_data import celery_app
-from urllib.parse import urlencode
 
 from handle_data.celery_config import REDIS_HOST,REDIS_PORT
-from handle_data.save_to_mysql import Save_to_sql
 import redis
 
 from raven import Client
+
+from handle_data.rpyc_conn import rpycSer
+
 cli = Client('https://6bc40853ade046ebb83077e956be04d2:d862bee828d848b6882ef875baedfe8c@sentry.cicjust.com//5')
 
 #建立redis连接池
@@ -81,9 +79,10 @@ def to_save(data):
     if not data:
         return 'nodata'
     try:
-        conn = rpyc.connect('116.228.76.162', 12233)
-        result = conn.root.save_sql(data)
-        return result
+        with rpycSer() as conn:
+            result = conn.root.save_sql(data)
+        if result:
+            return result
     except Exception as e:
         cli.captureException()
         return e
@@ -249,6 +248,10 @@ def filter_step(to_server):
             pageName = form_name
             break
     return pageName
+
+
+
+
 
 if __name__ == '__main__':
     # res = to_product.apply_async(args=(1, 2), routing_key='product')

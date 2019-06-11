@@ -18,12 +18,8 @@ from raven import Client
 cli = Client('https://6bc40853ade046ebb83077e956be04d2:d862bee828d848b6882ef875baedfe8c@sentry.cicjust.com//5')
 
 
-#推送数据的接口
-url = ''
-
-
-YuanQuToken = 'yuanqu001'
-
+rpyc_host = '116.228.76.162'
+rpyc_port = 12233
 
 # SURL = "mysql+pymysql://cic_admin:TaBoq,,1234@192.168.1.170:3306/yct_proxy?charset=utf8&autocommit=true"
 SURL = "mysql+pymysql://cic_admin:159357a@192.168.10.11:3306/yct_proxy?charset=utf8&autocommit=true"
