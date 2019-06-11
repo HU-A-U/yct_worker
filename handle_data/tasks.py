@@ -4,6 +4,7 @@ import datetime
 import json
 import random
 import pickle
+import rpyc
 import time
 from handle_data import celery_app
 from urllib.parse import urlencode
@@ -11,6 +12,9 @@ from urllib.parse import urlencode
 from handle_data.celery_config import REDIS_HOST,REDIS_PORT
 from handle_data.save_to_mysql import Save_to_sql
 import redis
+
+from raven import Client
+cli = Client('https://6bc40853ade046ebb83077e956be04d2:d862bee828d848b6882ef875baedfe8c@sentry.cicjust.com//5')
 
 #建立redis连接池
 redis_pool = redis.ConnectionPool(host=REDIS_HOST,port=REDIS_PORT,decode_responses=True)
@@ -55,15 +59,23 @@ def to_analysis(name):
 def to_save(data):
     '''消费数据'''
     # 将解析完的数据进行存库
-    save_to_analysis = Save_to_sql('yctformdata')
-    if data:
-        is_del = data.pop('delete_set')
-        if is_del: #判断是否删除记录
-            save_to_analysis.del_set(data)
-        else:
-            save_to_analysis.insert_new(data)
-
-    return data
+    # save_to_analysis = Save_to_sql('yctformdata')
+    # if data:
+    #     is_del = data.pop('delete_set')
+    #     if is_del: #判断是否删除记录
+    #         save_to_analysis.del_set(data)
+    #     else:
+    #         save_to_analysis.insert_new(data)
+    # return data
+    # 116.228.76.162:24822
+    try:
+        conn = rpyc.connect('116.228.76.162', 12233)
+        result = conn.root.save_sql(data)
+        conn.close()
+        return result
+    except Exception as e:
+        cli.captureException()
+        return 'rpyc_conn_error'
 
 def Analysis_data(data_str,name):
     # 数据解析
