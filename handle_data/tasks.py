@@ -78,6 +78,8 @@ def to_save(data):
     #         save_to_analysis.insert_new(data)
     # return data
     # 116.228.76.162:24822
+    if not data:
+        return 'nodata'
     try:
         conn = rpyc.connect('116.228.76.162', 12233)
         result = conn.root.save_sql(data)

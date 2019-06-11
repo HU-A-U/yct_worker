@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a6a13237-f0d0-47b4-84bd-c444d200b377" name="Default Changelist" comment="">
+    <list default="true" id="a6a13237-f0d0-47b4-84bd-c444d200b377" name="Default Changelist" comment="修改worker，不进行redis的数据暂存">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handle_data/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/handle_data/tasks.py" afterDir="false" />
     </list>
@@ -49,8 +49,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/handle_data/celery_config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="1880">
+              <caret line="94" column="17" lean-forward="true" selection-start-line="94" selection-start-column="17" selection-end-line="94" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -58,8 +58,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/handle_data/tasks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="78" column="21" lean-forward="true" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
+            <state relative-caret-position="254">
+              <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
               <folding>
                 <element signature="e#34#49#0" expanded="true" />
               </folding>
@@ -68,10 +68,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/handle_data/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="660">
+              <caret line="33" column="9" lean-forward="true" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+              <folding>
+                <element signature="e#40#55#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/yct_rpyc_server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="14" column="12" lean-forward="true" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+            <state relative-caret-position="500">
+              <caret line="25" column="30" lean-forward="true" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
               <folding>
                 <element signature="e#49#60#0" expanded="true" />
               </folding>
@@ -82,7 +94,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/save_to_sql.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
+            <state relative-caret-position="480">
               <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
               <folding>
                 <element signature="e#23#37#0" expanded="true" />
@@ -123,14 +135,14 @@
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/proxy_yct/middle_tool.py" />
         <option value="$PROJECT_DIR$/handle_data/data_mapping.py" />
-        <option value="$PROJECT_DIR$/handle_data/main.py" />
         <option value="$PROJECT_DIR$/docker-entrypoint.sh" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/Dockerfile" />
-        <option value="$PROJECT_DIR$/handle_data/celery_config.py" />
         <option value="$PROJECT_DIR$/handle_data/save_to_mysql.py" />
         <option value="$PROJECT_DIR$/save_to_sql.py" />
         <option value="$PROJECT_DIR$/yct_rpyc_server.py" />
+        <option value="$PROJECT_DIR$/handle_data/main.py" />
+        <option value="$PROJECT_DIR$/handle_data/celery_config.py" />
         <option value="$PROJECT_DIR$/handle_data/tasks.py" />
       </list>
     </option>
@@ -152,6 +164,11 @@
             <path>
               <item name="yct_worker" type="b2602c69:ProjectViewProjectNode" />
               <item name="yct_worker" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yct_worker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yct_worker" type="462c0819:PsiDirectoryNode" />
+              <item name="handle_data" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -228,7 +245,7 @@
       <workItem from="1557727783833" duration="153000" />
       <workItem from="1557732980158" duration="755000" />
       <workItem from="1557884534426" duration="1891000" />
-      <workItem from="1560220157242" duration="8065000" />
+      <workItem from="1560220157242" duration="8923000" />
     </task>
     <task id="LOCAL-00001" summary="配置sentry">
       <created>1556085308350</created>
@@ -419,17 +436,31 @@
       <option name="project" value="LOCAL" />
       <updated>1560240240789</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="翻译错误信息">
+      <created>1560241875670</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1560241875670</updated>
+    </task>
+    <task id="LOCAL-00029" summary="修改worker，不进行redis的数据暂存">
+      <created>1560242665006</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1560242665006</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69560000" />
+    <option name="totallyTimeSpent" value="70418000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16380544" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16380544" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -444,7 +475,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.6180723" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="12" visible="true" weight="0.29036143" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.28674698" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.32891566" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -459,8 +490,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修改连接地址" />
-    <MESSAGE value="判断逻辑漏洞" />
     <MESSAGE value="修改" />
     <MESSAGE value="存到测试170库" />
     <MESSAGE value="每次更新将apply_form这条记录的isSynchronous字段，置为0" />
@@ -484,14 +513,16 @@
     <MESSAGE value="换到正式发布环境,rmq设置私有地址172.19.79.104" />
     <MESSAGE value="使用rpyc连接将数据存到数据库" />
     <MESSAGE value="修改环境依赖文件" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改环境依赖文件" />
+    <MESSAGE value="翻译错误信息" />
+    <MESSAGE value="修改worker，不进行redis的数据暂存" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改worker，不进行redis的数据暂存" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/handle_data/tasks.py</url>
-          <line>92</line>
+          <line>101</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
@@ -528,16 +559,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/handle_data/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="e#40#55#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -582,29 +603,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/handle_data/celery_config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/handle_data/save_to_mysql.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="e#23#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yct_rpyc_server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="12" lean-forward="true" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-          <folding>
-            <element signature="e#49#60#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -616,9 +620,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/yct_rpyc_server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="25" column="30" lean-forward="true" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+          <folding>
+            <element signature="e#49#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handle_data/celery_config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1880">
+          <caret line="94" column="17" lean-forward="true" selection-start-line="94" selection-start-column="17" selection-end-line="94" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/save_to_sql.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
+        <state relative-caret-position="480">
           <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
           <folding>
             <element signature="e#23#37#0" expanded="true" />
@@ -626,10 +647,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/handle_data/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="33" column="9" lean-forward="true" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+          <folding>
+            <element signature="e#40#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/handle_data/tasks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="78" column="21" lean-forward="true" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
+        <state relative-caret-position="254">
+          <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
           <folding>
             <element signature="e#34#49#0" expanded="true" />
           </folding>
