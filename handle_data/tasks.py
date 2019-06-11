@@ -43,11 +43,15 @@ def to_analysis(name):
     '''解析数据'''
 
     #从redis中获取值
-    data_str = r.get(name)
-    # data_str = data_bytes.decode(encoding='utf-8')
+    data = r.get(name)
+    if not data:
+        return
+    if not data.isalpha():
+        data_str = data.decode(encoding='utf-8')
+    else:
+        data_str = data
     # 进行数据解析
     analysis_data = Analysis_data(data_str,name)
-
     if not analysis_data:
         return
 
@@ -75,7 +79,8 @@ def to_save(data):
         return result
     except Exception as e:
         cli.captureException()
-        return 'rpyc_conn_error'
+        return e
+
 
 def Analysis_data(data_str,name):
     # 数据解析
