@@ -18,7 +18,8 @@ from raven import Client
 cli = Client('https://6bc40853ade046ebb83077e956be04d2:d862bee828d848b6882ef875baedfe8c@sentry.cicjust.com//5')
 
 
-rpyc_host = '116.228.76.162'
+rpyc_host = '127.0.0.1'
+# rpyc_host = '116.228.76.162'
 rpyc_port = 12233
 
 # SURL = "mysql+pymysql://cic_admin:TaBoq,,1234@192.168.1.170:3306/yct_proxy?charset=utf8&autocommit=true"
