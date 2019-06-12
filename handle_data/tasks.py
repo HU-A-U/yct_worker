@@ -10,7 +10,7 @@ import redis
 
 from raven import Client
 
-from handle_data.rpyc_conn import rpycSer
+# from handle_data.rpyc_conn import rpycSer
 from handle_data.save_to_mysql import Save_to_sql
 
 cli = Client('https://6bc40853ade046ebb83077e956be04d2:d862bee828d848b6882ef875baedfe8c@sentry.cicjust.com//5')
@@ -20,8 +20,9 @@ redis_pool = redis.ConnectionPool(host=REDIS_HOST,port=REDIS_PORT,decode_respons
 r = redis.Redis(connection_pool=redis_pool)
 
 #建立rpyc连接
-import rpyc
-conn = rpyc.connect(rpyc_host,rpyc_port)
+# import rpyc
+# conn = rpyc.connect(rpyc_host,rpyc_port)
+
 @celery_app.task(name='to_create')
 def to_create(data_str):
     '''生产数据'''
