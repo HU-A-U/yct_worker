@@ -5,12 +5,13 @@ import random
 import pickle
 from handle_data import celery_app
 
-from handle_data.celery_config import REDIS_HOST,REDIS_PORT
+from handle_data.celery_config import *
 import redis
 
 from raven import Client
 
 from handle_data.rpyc_conn import rpycSer
+from handle_data.save_to_mysql import Save_to_sql
 
 cli = Client('https://6bc40853ade046ebb83077e956be04d2:d862bee828d848b6882ef875baedfe8c@sentry.cicjust.com//5')
 
@@ -18,43 +19,39 @@ cli = Client('https://6bc40853ade046ebb83077e956be04d2:d862bee828d848b6882ef875b
 redis_pool = redis.ConnectionPool(host=REDIS_HOST,port=REDIS_PORT,decode_responses=True)
 r = redis.Redis(connection_pool=redis_pool)
 
-# @celery_app.task(name='to_create')
-# def to_create(data_str):
-#     '''生产数据'''
-#     if not data_str:
-#         return
-#     # 将原始pickled的数据存入reids中
-#     # 随机生成一个数字，作为name
-#     name = str(random.random())
-#     value = data_str
-#     r.set(name,value,ex=3600)
-#     # 插入一条记录
-#     # save_to_product = Save_to_sql('product')
-#     # product_id = save_to_product.insert_new(data_str)
-#
-#     #根据返回的id res1，对数据进行解析，返回解析后的数据res2
-#     to_analysis.apply_async(args=[name], retry=True, queue='to_analysis',immutable=True)
+#建立rpyc连接
+import rpyc
+conn = rpyc.connect(rpyc_host,rpyc_port)
+@celery_app.task(name='to_create')
+def to_create(data_str):
+    '''生产数据'''
+    if not data_str:
+        return
+    # 将原始pickled的数据存入reids中
+    # 随机生成一个数字，作为name
+    name = str(random.random())
+    value = data_str
+    r.set(name,value,ex=3600)
+    # 插入一条记录
+    # save_to_product = Save_to_sql('product')
+    # product_id = save_to_product.insert_new(data_str)
+
+    #根据返回的id res1，对数据进行解析，返回解析后的数据res2
+    to_analysis.apply_async(args=[name], retry=True, queue='to_analysis',immutable=True)
 
 
 @celery_app.task(name='to_analysis')
-# def to_analysis(name):
-def to_analysis(data_str):
+def to_analysis(name):
+# def to_analysis(data_str):
     '''解析数据'''
 
     #从redis中获取值
-
-    # data = r.get(name)
-    # if not data:
-    #     return
-    # if not data.isalpha():
-    #     data_str = data.decode(encoding='utf-8')
-    # else:
-    #     data_str = data
+    data = r.get(name)
+    if isinstance(data,bytes):
+        data_str = data.decode(encoding='utf-8')
+    else:
+        data_str = data
     # 进行数据解析
-    if not data_str:
-        return 'nodata'
-
-    name = str(random.random())
     analysis_data = Analysis_data(data_str,name)
     if not analysis_data:
         return
@@ -67,25 +64,15 @@ def to_analysis(data_str):
 def to_save(data):
     '''消费数据'''
     # 将解析完的数据进行存库
-    # save_to_analysis = Save_to_sql('yctformdata')
-    # if data:
-    #     is_del = data.pop('delete_set')
-    #     if is_del: #判断是否删除记录
-    #         save_to_analysis.del_set(data)
-    #     else:
-    #         save_to_analysis.insert_new(data)
-    # return data
-    # 116.228.76.162:24822
-    if not data:
-        return 'nodata'
-    try:
-        with rpycSer() as conn:
-            result = conn.root.save_sql(data)
-        if result:
-            return result
-    except Exception as e:
-        cli.captureException()
-        return e
+    save_to_analysis = Save_to_sql('yctformdata')
+    if data:
+        is_del = data.pop('delete_set')
+        if is_del: #判断是否删除记录
+            save_to_analysis.del_set(data)
+        else:
+            save_to_analysis.insert_new(data)
+    return data
+
 
 def Analysis_data(data_str,name):
     # 数据解析
