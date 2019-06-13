@@ -1,9 +1,5 @@
 # -*- coding:utf-8 -*-
-import json
 import typing
-# from yct_task import my_customer,my_product
-# from yct_task_two import my_product
-from handle_data import tasks
 import mitmproxy.addonmanager
 import mitmproxy.connections
 import mitmproxy.http
@@ -14,6 +10,12 @@ import mitmproxy.proxy.protocol
 import pickle
 import time
 from handle_data.main import handle_data
+
+#建立redis连接池
+import redis
+from handle_data.celery_config import REDIS_HOST,REDIS_PORT
+redis_pool = redis.ConnectionPool(host=REDIS_HOST,port=REDIS_PORT)
+r = redis.Redis(connection_pool=redis_pool)
 
 filter_info={'http_connect':['sh.gov.cn']}
 class classification_deal:
@@ -51,7 +53,9 @@ class Proxy(classification_deal):
         """
         # request_header=eval(dict(flow.request.headers)['request_header'])
         '''获取请求详细信息'''
-
+        rel_addr = flow.client_conn.address[0]
+        if r.get(rel_addr) != 'pass':
+            flow.response = mitmproxy.http.HTTPResponse.make(404)
 
     def responseheaders(self, flow: mitmproxy.http.HTTPFlow):
         """

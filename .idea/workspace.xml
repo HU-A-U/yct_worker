@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a6a13237-f0d0-47b4-84bd-c444d200b377" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handle_data/celery_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/handle_data/celery_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handle_data/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/handle_data/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handle_data/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/handle_data/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yct_rpyc_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/yct_rpyc_server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proxy_yct/middle_tool.py" beforeDir="false" afterPath="$PROJECT_DIR$/proxy_yct/middle_tool.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,8 +46,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/handle_data/celery_config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="265">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
@@ -57,11 +55,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/handle_data/tasks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
-              <folding>
-                <element signature="e#34#45#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="180">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -69,10 +64,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proxy_yct/middle_tool.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="83" />
+            <state relative-caret-position="380">
+              <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
               <folding>
-                <element signature="e#23#34#0" expanded="true" />
+                <element signature="e#28#41#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -93,8 +88,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/handle_data/rpyc_conn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="220">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
               <folding>
                 <element signature="e#23#34#0" expanded="true" />
               </folding>
@@ -106,7 +101,7 @@
         <entry file="file://$PROJECT_DIR$/handle_data/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="26">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
               <folding>
                 <element signature="e#46#77#0" expanded="true" />
               </folding>
@@ -135,7 +130,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/proxy_yct/middle_tool.py" />
         <option value="$PROJECT_DIR$/handle_data/data_mapping.py" />
         <option value="$PROJECT_DIR$/docker-entrypoint.sh" />
         <option value="$PROJECT_DIR$/README.md" />
@@ -148,15 +142,16 @@
         <option value="$PROJECT_DIR$/yct_rpyc_server.py" />
         <option value="$PROJECT_DIR$/handle_data/celery_config.py" />
         <option value="$PROJECT_DIR$/handle_data/main.py" />
+        <option value="$PROJECT_DIR$/proxy_yct/middle_tool.py" />
         <option value="$PROJECT_DIR$/handle_data/tasks.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="x" value="691" />
-    <option name="y" value="23" />
-    <option name="width" value="749" />
-    <option name="height" value="826" />
+    <option name="x" value="721" />
+    <option name="y" value="33" />
+    <option name="width" value="719" />
+    <option name="height" value="816" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -175,11 +170,6 @@
               <item name="yct_worker" type="b2602c69:ProjectViewProjectNode" />
               <item name="yct_worker" type="462c0819:PsiDirectoryNode" />
               <item name="handle_data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yct_worker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yct_worker" type="462c0819:PsiDirectoryNode" />
-              <item name="proxy_yct" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -307,7 +297,7 @@
       <workItem from="1557732980158" duration="755000" />
       <workItem from="1557884534426" duration="1891000" />
       <workItem from="1560220157242" duration="17396000" />
-      <workItem from="1560300120747" duration="7247000" />
+      <workItem from="1560300120747" duration="12456000" />
     </task>
     <task id="LOCAL-00001" summary="配置sentry">
       <created>1556085308350</created>
@@ -540,17 +530,31 @@
       <option name="project" value="LOCAL" />
       <updated>1560294608442</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="重新发布测试环境">
+      <created>1560310089992</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1560310089992</updated>
+    </task>
+    <task id="LOCAL-00035" summary="注释rpyc部分">
+      <created>1560311416253</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1560311416253</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86138000" />
+    <option name="totallyTimeSpent" value="91347000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13519314" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13519314" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -580,8 +584,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修改为正式库" />
-    <MESSAGE value="开启flower后台监控的命令" />
     <MESSAGE value="调整股东，成员的部分" />
     <MESSAGE value="修改redis地址为20段" />
     <MESSAGE value="忘记 db.commit()" />
@@ -605,7 +607,9 @@
     <MESSAGE value="修改" />
     <MESSAGE value="添加rpyc连接上下文管理器" />
     <MESSAGE value="打包到测试环境" />
-    <option name="LAST_COMMIT_MESSAGE" value="打包到测试环境" />
+    <MESSAGE value="重新发布测试环境" />
+    <MESSAGE value="注释rpyc部分" />
+    <option name="LAST_COMMIT_MESSAGE" value="注释rpyc部分" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/.virtualenvs/py36_mitmproxy/lib/python3.6/site-packages/mitmproxy/proxy/server.py" />
@@ -676,16 +680,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/handle_data/rpyc_conn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="e#23#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/encoder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
@@ -708,33 +702,6 @@
         <state>
           <folding>
             <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/handle_data/celery_config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proxy_yct/middle_tool.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="83" />
-          <folding>
-            <element signature="e#23#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/handle_data/save_to_mysql.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#23#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -769,20 +736,54 @@
     <entry file="file://$PROJECT_DIR$/handle_data/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="26">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
           <folding>
             <element signature="e#46#77#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/handle_data/celery_config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handle_data/rpyc_conn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#23#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handle_data/save_to_mysql.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#23#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxy_yct/middle_tool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+          <folding>
+            <element signature="e#28#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/handle_data/tasks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
-          <folding>
-            <element signature="e#34#45#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="180">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
