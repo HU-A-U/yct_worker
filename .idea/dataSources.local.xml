@@ -11,5 +11,15 @@
       <user-name>cic_admin</user-name>
       <introspection-schemas>*:yct_proxy</introspection-schemas>
     </data-source>
+    <data-source name="@192.168.1.170" uuid="cfe73f07-6ddf-40dd-9a13-cd2b5e6d4c11">
+      <database-info product="MySQL" version="5.7.10" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )" dbms="MYSQL" exact-version="5.7.10" exact-driver-version="5.1">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>cic_admin</user-name>
+      <introspection-schemas>*:yct_proxy</introspection-schemas>
+    </data-source>
   </component>
 </project>

@@ -1,10 +1,10 @@
 # -*- coding:utf-8 -*-
 import datetime
-import sqlsoup
 from handle_data.celery_config import SURL
 from raven import Client
 cli = Client('https://6bc40853ade046ebb83077e956be04d2:d862bee828d848b6882ef875baedfe8c@sentry.cicjust.com//5')
 
+import sqlsoup
 try:
     db = sqlsoup.SQLSoup(SURL)
 except Exception as e:
@@ -31,6 +31,7 @@ class Save_to_sql():
         new_dict = {}
         to_server = infodata.get('to_server')
         methods = infodata.get('methods')
+        etpsName = infodata.get('etpsName')
         customer_id = infodata.get('customer_id')
         registerAppNo = infodata.get('registerAppNo')
         if 'yct' not in to_server: #一窗通之外的数据不存库
@@ -40,6 +41,11 @@ class Save_to_sql():
             if self.table.filter_by(to_server=to_server, methods=methods,registerAppNo=registerAppNo,customer_id=customer_id).count():
                 # 已存在的记录直接更新
                 self.table.filter_by(to_server=to_server, methods=methods,registerAppNo=registerAppNo,customer_id=customer_id).update(infodata)
+                if to_server == 'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/save_info':
+                    upinfo = {'etpsName':etpsName}
+                    self.table.filter_by(registerAppNo=registerAppNo).update(upinfo)
+                    yctAppNo = infodata.get('yctAppNo')
+                    self.table.filter_by(yctAppNo=yctAppNo).update(upinfo)
                 db.commit()
                 return
         except Exception as e:
@@ -48,7 +54,8 @@ class Save_to_sql():
             db.rollback()
             return
 
-        # 直接插入一条新纪录
+
+        # 不存在就，直接插入一条新纪录
         new_dict.update(infodata)
         try:
             self.table.insert(**new_dict)
@@ -71,7 +78,8 @@ class Save_to_sql():
                     self._sentry.captureException()
                 db.rollback()
                 raise e
-        elif to_server == 'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/save_info':
+
+        if to_server == 'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/save_info':
             # 更新股东form或成员form的yctAppNo和etpsName
             try:
                 investor_url = 'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/investor/ajax/save'
@@ -85,6 +93,7 @@ class Save_to_sql():
                     self._sentry.captureException()
                 db.rollback()
         return
+
 
     def del_set(self,infodata):
         '''
@@ -100,9 +109,9 @@ class Save_to_sql():
         try:
             the_set = None
             if to_server == 'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/investor/ajax/delete':
-                the_set = self.table.filter_by(to_server=to_server,pageName=pageName,registerAppNo=registerAppNo,customer_id=customer_id)
+                the_set = self.table.filter_by(to_server='http://yct.sh.gov.cn/bizhallnz_yctnew/apply/investor/ajax/save',pageName=pageName,registerAppNo=registerAppNo,customer_id=customer_id).one()
             elif to_server == 'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/member/ajax_delete_member':
-                the_set = self.table.filter_by(to_server=to_server,pageName=pageName,customer_id=customer_id)
+                the_set = self.table.filter_by(to_server='http://yct.sh.gov.cn/bizhallnz_yctnew/apply/member/ajax_save_member',pageName=pageName,registerAppNo=registerAppNo,customer_id=customer_id).one()
             db.delete(the_set)
             db.commit()
         except Exception as e:
