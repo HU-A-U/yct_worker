@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6a13237-f0d0-47b4-84bd-c444d200b377" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handle_data/celery_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/handle_data/celery_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handle_data/data_mapping.py" beforeDir="false" afterPath="$PROJECT_DIR$/handle_data/data_mapping.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handle_data/save_to_mysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/handle_data/save_to_mysql.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handle_data/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/handle_data/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ss.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,8 +60,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/handle_data/celery_config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="29" column="19" lean-forward="true" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+            <state relative-caret-position="-88">
+              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
             </state>
           </provider>
         </entry>
@@ -325,7 +320,7 @@
       <workItem from="1557884534426" duration="1891000" />
       <workItem from="1560220157242" duration="17396000" />
       <workItem from="1560300120747" duration="15816000" />
-      <workItem from="1560409842097" duration="28086000" />
+      <workItem from="1560409842097" duration="28630000" />
     </task>
     <task id="LOCAL-00001" summary="配置sentry">
       <created>1556085308350</created>
@@ -586,17 +581,31 @@
       <option name="project" value="LOCAL" />
       <updated>1560403125535</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="更正公司名称">
+      <created>1560503678581</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1560503678581</updated>
+    </task>
+    <task id="LOCAL-00039" summary="再次发布到正式环境">
+      <created>1560504199750</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1560504199750</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122793000" />
+    <option name="totallyTimeSpent" value="123337000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14020029" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14020029" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -610,7 +619,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007153" side_tool="true" weight="0.3253012" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.039759036" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.19277108" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.2554217" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.32891566" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -626,8 +635,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="忘记 db.commit()" />
-    <MESSAGE value="修改存库的参数" />
     <MESSAGE value="修改逻辑错误，此为大忌" />
     <MESSAGE value="改为正式环境" />
     <MESSAGE value="修改一些对应的字段，增加负责人的信息等" />
@@ -651,7 +658,9 @@
     <MESSAGE value="注释rpyc部分" />
     <MESSAGE value="重新发布到测试环境" />
     <MESSAGE value="发布到正式环境" />
-    <option name="LAST_COMMIT_MESSAGE" value="发布到正式环境" />
+    <MESSAGE value="更正公司名称" />
+    <MESSAGE value="再次发布到正式环境" />
+    <option name="LAST_COMMIT_MESSAGE" value="再次发布到正式环境" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/.virtualenvs/py36_mitmproxy/lib/python3.6/site-packages/mitmproxy/proxy/server.py" />
@@ -811,13 +820,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://cfe73f07-6ddf-40dd-9a13-cd2b5e6d4c11/schema/yct_proxy/table/yctformdata">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/handle_data/tasks.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -835,10 +837,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://cfe73f07-6ddf-40dd-9a13-cd2b5e6d4c11/schema/yct_proxy/table/yctformdata">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/handle_data/celery_config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="29" column="19" lean-forward="true" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+        <state relative-caret-position="-88">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
         </state>
       </provider>
     </entry>
