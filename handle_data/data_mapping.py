@@ -17,9 +17,6 @@ big_dict = {
         'chiefMember.cetfId':'frsfz', #法人身份证
         'frdz':['chiefProvId','chiefCityId','chiefDistrictId'], #法人所在区
 
-        'fzr':'chiefMember.personName', #负责人姓名
-        'fzrdh':'chiefMember.mobile', #负责人手机号
-
         'etpsContact.persnName':'llyxm', #XXX新增 联络员
 	    'etpsContact.mobile':'llysj', #XXX新增 联络员手机号
         'etpsContact.certNo':'llysfz', #联络员身份证
@@ -357,6 +354,9 @@ chiefDistrictId = {
 
 }
 
+
+
+''' #测试数据
 a={ "appNo":"0000000120190304A014",
     "entityTypeId":"0101",
     "cptl":"5.0000",
@@ -404,4 +404,5 @@ new = {'client_address': None,
        'registerAppNo': '0600000120190305A012',
        'yctAppNo': 'd57ddd3ade3a414a844db854ca9dcdc3',
        'etpsName': '上海溜阳税务咨询有限责任公司'}
+'''
 
