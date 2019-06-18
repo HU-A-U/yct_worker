@@ -53,8 +53,9 @@ class Proxy(classification_deal):
         """
         # request_header=eval(dict(flow.request.headers)['request_header'])
         '''获取请求详细信息'''
-        rel_addr = flow.client_conn.address[0]
-        if r.get(rel_addr) != 'pass':
+        rel_addr = flow.client_conn.address[0].split(':')[-1]
+        acc_addr = r.get(rel_addr).decode(encoding='utf-8') if isinstance(r.get(rel_addr),bytes) else r.get(rel_addr)
+        if acc_addr != 'pass':
             flow.response = mitmproxy.http.HTTPResponse.make(404)
 
     def responseheaders(self, flow: mitmproxy.http.HTTPFlow):
