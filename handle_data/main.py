@@ -1,6 +1,5 @@
 # -*- coding:utf-8 -*-
 '''调用celery任务'''
-
 from handle_data.tasks import *
 from celery import chain
 from urllib import parse, request
