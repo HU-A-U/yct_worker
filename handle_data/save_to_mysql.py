@@ -43,7 +43,7 @@ class Save_to_sql():
                 self.table.filter_by(to_server=to_server, methods=methods,registerAppNo=registerAppNo,customer_id=customer_id).update(infodata)
                 if to_server == 'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/save_info':
                     #对于已经存在的公司，每次修改暂存，就整体更新一次公司名称包括股东主要成员信息，同步用户修改后的公司名称
-                    upinfo = {'etpsName':etpsName}
+                    upinfo = {'etpsName':etpsName,'isSynchronous':'0'}
                     self.table.filter_by(registerAppNo=registerAppNo).update(upinfo)
                     yctAppNo = infodata.get('yctAppNo')
                     self.table.filter_by(yctAppNo=yctAppNo).update(upinfo)

@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 '''celery配置'''
+
 '''启动命令'''
 # celery -A handle_data worker -l info -Q to_product  -P eventlet 生产数据
 
@@ -31,9 +32,9 @@ REDIS_HOST = 'aliyun_redis'
 REDIS_PORT = 6379
 
 
-# RABBITMQ_HOST = '192.168.1.152'
+# RABBITMQ_HOST = '127.0.0.1'
 RABBITMQ_HOST = '47.102.218.137'
-RABBITMQ_PORT = 5672
+RABBITMQ_PORT = 15672
 
 
 # 注意，celery4版本后，CELERY_BROKER_URL改为BROKER_URL
