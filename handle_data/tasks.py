@@ -227,6 +227,7 @@ def handel_parameter(parameter_dict, url):
             gdsfz=parameter_dict.get('personInvtSet', [{}])[0].get('cetfId', ''),  # 身份证
             gddz=parameter_dict.get('address', ''),  # 地址
             gdrj=parameter_dict.get('cptl', ''),  # 认缴金额
+            czqx=parameter_dict.get('deadlineDate', ''),  # 出资期限
             gdlx=gdlx.get(parameter_dict.get('entityTypeId', ''), ''),  # 股东类型
         )
     else:
