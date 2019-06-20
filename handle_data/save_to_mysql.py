@@ -39,7 +39,6 @@ class Save_to_sql():
         if 'http://yct.sh.gov.cn/bizhallnz_yctnew/search' in to_server: #查询数据的不存库
             return
 
-        # if to_server not in ['http://yct.sh.gov.cn/bizhallnz_yctnew/apply/investor/ajax/save','http://yct.sh.gov.cn/bizhallnz_yctnew/apply/member/ajax_save_member']:
         try:
             if self.table.filter_by(to_server=to_server, methods=methods,registerAppNo=registerAppNo,customer_id=customer_id).count():
                 # 已存在的记录直接更新
