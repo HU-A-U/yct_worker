@@ -124,6 +124,14 @@ def Analysis_data(data_str, name):
     unuse_urls = [
         'http://yct.sh.gov.cn/namedeclare','http://yct.sh.gov.cn/portal_yct',
         'http://yct.sh.gov.cn/favicon.ico','http://yct.sh.gov.cn/yct_other',
+        'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/generateCsrfToken',
+        'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/loadAcceptSite',
+        'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/showDescription',
+        'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/establish/edit_yct',
+        'http://yct.sh.gov.cn/bizhallnz_yctnew/register',
+        'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/investor/edit',
+        'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/investor/ajax/entity_type',
+        'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/member/to_member_info'
     ]
     for url in unuse_urls:
         if url in to_server:
@@ -170,10 +178,6 @@ def Analysis_data(data_str, name):
         gdNo = params.get('id', [])[0]
         analysis_data['customer_id'] = gdNo
         analysis_data['delete_set'] = True
-
-    # 正对修改公司名称的请求存库问题
-    elif 'http://yct.sh.gov.cn/namedeclare' in to_server:
-        return
 
     # 针对其他的form的保存，前提是appNo对应apply_form已经存在库里
     else:
