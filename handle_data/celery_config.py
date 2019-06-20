@@ -2,11 +2,11 @@
 '''celery配置'''
 
 '''启动命令'''
-# celery -A handle_data worker -l info -Q to_product  -P eventlet 生产数据
+# celery -A handle_data worker -l info -Q to_create  -P eventlet 生产数据
 
 # celery -A handle_data worker -l info -Q to_analysis -P eventlet 解析数据
 
-# celery -A handle_data worker -l info -Q to_consume -P eventlet  消费数据
+# celery -A handle_data worker -l info -Q to_save -P eventlet  消费数据
 
 # mitmdump -s start_script.py
 
@@ -20,8 +20,8 @@ cli = Client('https://6bc40853ade046ebb83077e956be04d2:d862bee828d848b6882ef875b
 
 
 
-# SURL = "mysql+pymysql://cic_admin:TaBoq,,1234@192.168.1.170:3306/yct_proxy?charset=utf8&autocommit=true"
-SURL = "mysql+pymysql://cic_admin:159357a@192.168.10.11:3306/yct_proxy?charset=utf8&autocommit=true"
+SURL = "mysql+pymysql://cic_admin:TaBoq,,1234@192.168.1.170:3306/yct_proxy?charset=utf8&autocommit=true"
+# SURL = "mysql+pymysql://cic_admin:159357a@192.168.10.11:3306/yct_proxy?charset=utf8&autocommit=true"
 # SURL = "mysql+pymysql://root:GHys1234&,><@!@192.168.10.246:3306/yct_proxy?charset=utf8&autocommit=true"
 
 # REDIS_HOST = '192.168.20.245'
@@ -40,7 +40,8 @@ RABBITMQ_PORT = 5672
 # 注意，celery4版本后，CELERY_BROKER_URL改为BROKER_URL
 from kombu import Queue, Exchange
 
-BROKER_URL = 'amqp://cic_admin:JYcxys@3030@{}:{}/yct'.format(RABBITMQ_HOST,RABBITMQ_PORT)
+# BROKER_URL = 'amqp://cic_admin:JYcxys@3030@{}:{}/yct'.format(RABBITMQ_HOST,RABBITMQ_PORT)
+BROKER_URL = 'amqp://cic_admin:JYcxys@3030@{}:{}/test'.format(RABBITMQ_HOST,RABBITMQ_PORT)
 # BROKER_URL = 'amqp://test:test@127.0.0.1:5672/test'
 # 指定结果的接受地址
 CELERY_RESULT_BACKEND = 'redis://{}:{}/15'.format(REDIS_HOST,REDIS_PORT)
