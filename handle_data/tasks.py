@@ -123,7 +123,7 @@ def Analysis_data(data_str, name):
     #过滤无用请求
     unuse_urls = [
         'http://yct.sh.gov.cn/namedeclare','http://yct.sh.gov.cn/portal_yct',
-        'http://yct.sh.gov.cn/favicon.ico','http://yct.sh.gov.cn/yct_other',
+        'http://yct.sh.gov.cn/favicon.ico',
         'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/generateCsrfToken',
         'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/loadAcceptSite',
         'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/showDescription',
@@ -131,7 +131,10 @@ def Analysis_data(data_str, name):
         'http://yct.sh.gov.cn/bizhallnz_yctnew/register',
         'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/investor/edit',
         'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/investor/ajax/entity_type',
-        'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/member/to_member_info'
+        'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/member/to_member_info',
+        'http://yct.sh.gov.cn/bizhallnz_yctnew/revert',
+        'http://yct.sh.gov.cn/bizhallnz_yctnew/main',
+        'http://yct.sh.gov.cn/bizhallnz_yctnew/index'
     ]
     for url in unuse_urls:
         if url in to_server:
