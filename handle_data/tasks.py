@@ -81,7 +81,7 @@ def Analysis_data(data_str, name):
     data_dict = pickle.loads(eval(data_str))
 
     # 过滤 js,css,png,gif,jpg 的数据
-    for end_name in ['.js', '.css', '.png', '.jpg', '.gif']:
+    for end_name in ['.js', '.css', '.png', '.jpg', '.gif','.ico']:
         if end_name in data_dict.get('to_server'):
             return
     request = data_dict.get('request')
@@ -119,6 +119,15 @@ def Analysis_data(data_str, name):
         'delete_set': False
     }
     to_server = data_dict.get('to_server')
+
+    #过滤无用请求
+    unuse_urls = [
+        'http://yct.sh.gov.cn/namedeclare','http://yct.sh.gov.cn/portal_yct',
+        'http://yct.sh.gov.cn/favicon.ico','http://yct.sh.gov.cn/yct_other',
+    ]
+    for url in unuse_urls:
+        if url in to_server:
+            return
 
     # apply_form的保存，会产生公司名称和yctAppNo
     if 'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/save_info' in to_server:
@@ -169,15 +178,12 @@ def Analysis_data(data_str, name):
     # 针对其他的form的保存，前提是appNo对应apply_form已经存在库里
     else:
         yctAppNo = parameters_dict.get("yctAppNo", '') or parameters_dict.get("yctSocialUnit.yctAppNo", '')
-        registerAppNo = parameters_dict.get("registerAppNo", '') or parameters_dict.get('appNo') or parameters_dict.get(
-            'etpsMember.appNo')
+        registerAppNo = parameters_dict.get("registerAppNo", '') or parameters_dict.get('appNo') or parameters_dict.get('etpsMember.appNo')
         if yctAppNo or registerAppNo:
             if r.get(yctAppNo):
                 analysis_data['registerAppNo'] = ''
                 analysis_data['yctAppNo'] = yctAppNo
-                analysis_data['etpsName'] = r.get(yctAppNo).decode(encoding='utf-8') if isinstance(r.get(yctAppNo),
-                                                                                                   bytes) else r.get(
-                    yctAppNo)
+                analysis_data['etpsName'] = r.get(yctAppNo).decode(encoding='utf-8') if isinstance(r.get(yctAppNo),bytes) else r.get(yctAppNo)
             elif r.get(registerAppNo):
                 analysis_data['yctAppNo'] = ''
                 analysis_data['registerAppNo'] = registerAppNo
