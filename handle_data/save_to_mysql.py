@@ -115,6 +115,7 @@ class Save_to_sql():
             if 'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/investor/ajax/delete' in to_server:
                 the_set = self.table.filter_by(pageName=pageName,registerAppNo=registerAppNo,customer_id=customer_id).one()
             elif 'http://yct.sh.gov.cn/bizhallnz_yctnew/apply/member/ajax_delete_member' in to_server:
+                # 删除成员的请求里没有AppNo，根据customer_id进行筛选
                 the_set = self.table.filter_by(pageName=pageName,customer_id=customer_id).one()
             db.delete(the_set)
             db.commit()
