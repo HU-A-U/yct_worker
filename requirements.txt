@@ -40,7 +40,7 @@ lxml==4.3.3
 mitmproxy==4.0.4
 monotonic==1.5
 passlib==1.7.1
-Pillow==5.4.1
+Pillow==8.2.0
 pipreqs==0.4.9
 pluggy==0.8.1
 plumbum==1.6.7
