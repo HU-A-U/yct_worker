@@ -3,7 +3,7 @@ anyjson==0.3.3
 asn1crypto==0.24.0
 attrs==18.2.0
 Automat==0.7.0
-Babel==2.6.0
+Babel==2.9.1
 billiard==3.6.0.0
 blinker==1.4
 brotlipy==0.7.0
