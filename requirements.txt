@@ -7,7 +7,7 @@ Babel==2.6.0
 billiard==3.6.0.0
 blinker==1.4
 brotlipy==0.7.0
-celery==4.3.0rc1
+celery==5.2.2
 certifi==2018.11.29
 cffi==1.11.5
 chardet==3.0.4
