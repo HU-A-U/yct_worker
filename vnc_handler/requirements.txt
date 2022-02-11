@@ -19,7 +19,7 @@ PyHamcrest==1.9.0
 pywin32==224
 requests==2.21.0
 six==1.12.0
-Twisted==18.9.0
+Twisted==22.1.0
 urllib3==1.24.1
 vncdotool==0.12.1
 websockify==0.8.0
