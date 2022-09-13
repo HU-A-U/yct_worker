@@ -21,7 +21,7 @@ docopt==0.6.2
 elasticsearch==6.3.1
 eventlet==0.24.1
 filelock==3.0.10
-flower==0.9.3
+flower==1.2.0
 greenlet==0.4.15
 h11==0.7.0
 h2==3.0.1
